@@ -47,7 +47,7 @@ const Header = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
               className="hidden sm:flex items-center gap-1.5 bg-sky-500/20 hover:bg-sky-500/30 text-sky-100 px-3 py-1 rounded-full border border-sky-300/30 transition text-xs font-semibold"
             >
               <FileText className="w-3.5 h-3.5 text-sky-300" />
-              <span>Get WhatsApp Reports</span>
+              <span>Request Lab Reports</span>
             </button>
             <a 
               href="tel:+919985721155" 
@@ -66,9 +66,9 @@ const Header = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
         {/* Big Clear Logo */}
         <div 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="cursor-pointer hover:opacity-95 transition transform hover:scale-[1.02] shrink-0"
+          className="cursor-pointer hover:opacity-95 transition transform hover:scale-[1.02] shrink-0 py-1"
         >
-          <Logo className="h-16 sm:h-20 md:h-22" />
+          <Logo />
         </div>
 
         {/* Desktop Navigation Links */}
@@ -85,7 +85,7 @@ const Header = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
           <button onClick={() => handleNavClick('services')} className="hover:text-[#0F4C81] transition">
             Services
           </button>
-          <button onClick={() => handleNavClick('lab-tests')} className="hover:text-[#0F4C81] transition">
+          <button onClick={() => { setIsMobileMenuOpen(false); onOpenLabModal(); }} className="hover:text-[#0F4C81] transition">
             Lab Tests
           </button>
           <button onClick={() => handleNavClick('pharmacy')} className="hover:text-[#0F4C81] transition">
@@ -132,7 +132,7 @@ const Header = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
               <Activity className="w-4 h-4 text-sky-600" />
               <span>Doctors</span>
             </button>
-            <button onClick={() => handleNavClick('lab-tests')} className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 hover:bg-sky-50 text-slate-800">
+            <button onClick={() => { setIsMobileMenuOpen(false); onOpenLabModal(); }} className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 hover:bg-sky-50 text-slate-800">
               <FileText className="w-4 h-4 text-sky-600" />
               <span>Lab Tests</span>
             </button>
@@ -147,7 +147,7 @@ const Header = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
             <button onClick={() => handleNavClick('faq')} className="text-left py-2 px-2 text-slate-700 hover:text-sky-700">Frequently Asked Questions</button>
             <button onClick={() => handleNavClick('contact')} className="text-left py-2 px-2 text-slate-700 hover:text-sky-700">Contact & Directions</button>
             <button onClick={onOpenReportModal} className="text-left py-2 px-2 text-sky-700 font-bold flex items-center justify-between">
-              <span>Get WhatsApp Lab Reports</span>
+              <span>Request Lab Reports</span>
               <MessageSquare className="w-4 h-4" />
             </button>
           </div>

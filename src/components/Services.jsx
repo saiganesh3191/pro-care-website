@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { 
   UserCheck, 
   Microscope, 
@@ -70,11 +71,17 @@ const Services = ({
   ];
 
   return (
-    <section id="services" className="py-20 bg-white relative">
+    <section id="services" className="py-20 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4"
+        >
           <div className="text-left space-y-2.5">
             <span className="text-[#0F4C81] text-xs sm:text-sm uppercase font-extrabold tracking-widest bg-sky-50 px-4 py-1.5 rounded-full border border-sky-100">
               Complete Healthcare Under One Roof
@@ -88,26 +95,33 @@ const Services = ({
           </div>
 
           <div>
-            <button 
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={onOpenAppointment}
               className="inline-flex items-center gap-2 text-sm font-extrabold text-[#0F4C81] hover:text-sky-700 bg-sky-50 hover:bg-sky-100 px-5 py-3 rounded-xl border border-sky-200 transition shadow-xs"
             >
               <span>View All Services</span>
               <ChevronRight className="w-5 h-5" />
-            </button>
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Services 5-Column Grid with Taller, Bigger Photos */}
+        {/* Services 5-Column Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-          {servicesList.map((service) => {
+          {servicesList.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <div 
+              <motion.div 
                 key={service.id}
-                className="bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-2xl hover:border-sky-300 transition-all duration-300 flex flex-col overflow-hidden group hover:-translate-y-1.5"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -8 }}
+                className="bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-2xl hover:border-sky-300 transition-all duration-300 flex flex-col overflow-hidden group"
               >
-                {/* Taller Image & Icon Overlay */}
+                {/* Image & Icon Overlay */}
                 <div className="relative h-56 sm:h-60 overflow-hidden bg-slate-100">
                   <img 
                     src={service.image} 
@@ -138,15 +152,16 @@ const Services = ({
                     </p>
                   </div>
 
-                  <button 
+                  <motion.button 
+                    whileTap={{ scale: 0.95 }}
                     onClick={service.handler}
                     className="w-full mt-2 py-3 px-4 rounded-xl border-2 border-sky-200 hover:border-[#0F4C81] text-[#0F4C81] hover:bg-[#0F4C81] hover:text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-xs"
                   >
                     <span>{service.actionText}</span>
                     <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </motion.button>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

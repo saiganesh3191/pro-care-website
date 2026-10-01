@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { 
-  UserCheck, 
-  Calendar, 
-  Clock, 
   Award, 
-  Stethoscope, 
+  Clock, 
+  Calendar, 
   Star,
-  Building2,
-  Mail,
-  Phone
+  Building2
 } from 'lucide-react';
 
 const DoctorsDirectory = ({ onOpenAppointment }) => {
@@ -24,9 +21,22 @@ const DoctorsDirectory = ({ onOpenAppointment }) => {
       affiliation: 'Consultant Pulmonologist - CARE Hospitals Nampally & Director PRO CARE',
       timings: 'Mon - Sat: 10:00 AM - 2:00 PM & 6:00 PM - 9:00 PM',
       rating: '5.0',
-      image: '/images/consultation.png',
+      image: '/images/dr.vassem.png',
       badge: 'Medical Director & Lead Physician',
       isLead: true
+    },
+    {
+      id: 'doc-[#gayatri]',
+      name: 'Dr. Gayatri',
+      specialty: 'Dentistry (Endodontics & Prosthodontics)',
+      qualification: 'BDS, Fellowship in Rotary Endodontics & Fixed Prosthodontics',
+      experience: 'Masters in Bioclear Concept',
+      affiliation: 'Dental Care Specialist & Consultant Surgeon',
+      timings: 'Mon - Sat: 10:00 AM - 2:00 PM & 5:00 PM - 8:30 PM',
+      rating: '4.9',
+      image: '/images/dr-gayatri.jpeg',
+      badge: 'Dental Care Specialist',
+      isLead: false
     },
     {
       id: 'doc-2',
@@ -69,66 +79,79 @@ const DoctorsDirectory = ({ onOpenAppointment }) => {
     }
   ];
 
-  const specialties = ['All', 'Pulmonology & Chest', 'Diabetology', 'Gynecologist', 'Pediatrician', 'Cardiologist'];
+  const specialties = ['All', 'Pulmonology & Chest', 'Dental Care', 'Diabetology', 'Gynecologist', 'Pediatrician', 'Cardiologist'];
 
   const filteredDoctors = selectedSpecialty === 'All' 
     ? doctorsList 
     : doctorsList.filter(d => 
         d.specialty.toLowerCase().includes(selectedSpecialty.toLowerCase()) ||
         (selectedSpecialty === 'Pulmonology & Chest' && d.specialty.includes('Pulmonologist')) ||
+        (selectedSpecialty === 'Dental Care' && d.specialty.includes('Dentistry')) ||
         (selectedSpecialty === 'Diabetology' && d.specialty.includes('Diabetologist'))
       );
 
   return (
-    <section id="doctors" className="py-20 bg-white relative">
+    <section id="doctors" className="py-16 sm:py-20 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 text-center">
         
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto space-y-3 mb-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mx-auto space-y-3 mb-10"
+        >
           <span className="text-[#0F4C81] text-xs sm:text-sm uppercase font-extrabold tracking-widest bg-sky-50 px-4 py-1.5 rounded-full border border-sky-100">
-            Expert Medical Director & Consultant Panel
+            Expert Medical Director & Specialist Panel
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-            Consult Specialist Doctors
+            Consult Our Doctors
           </h2>
-          <p className="text-slate-600 text-base md:text-lg font-medium">
-            Led by <strong>Dr. Mohd. Vaseem</strong> (MD Pulmonary Medicine, FCCP USA • Consultant CARE Hospitals Nampally), our medical team brings world-class healthcare to Aghapura & Nampally.
+          <p className="text-slate-600 text-sm sm:text-base md:text-lg font-medium">
+            Led by <strong>Dr. Mohd. Vaseem</strong> (MD Pulmonary Medicine, FCCP USA • Consultant CARE Hospitals Nampally) & Specialist Consultants across Pulmonology, Dentistry, Gynecologist, and Pediatrics.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
+        {/* Mobile Swipeable Filter Pills */}
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-2 px-1 mb-10 -mx-4 sm:mx-0 sm:justify-center">
           {specialties.map((spec) => (
-            <button
+            <motion.button
               key={spec}
+              whileTap={{ scale: 0.95 }}
               onClick={() => setSelectedSpecialty(spec)}
-              className={`px-4 py-2 rounded-full text-xs sm:text-sm font-extrabold transition ${
+              className={`whitespace-nowrap px-4 py-2 rounded-full text-xs sm:text-sm font-extrabold transition shrink-0 ${
                 selectedSpecialty === spec
                   ? 'bg-[#0F4C81] text-white shadow-md'
                   : 'bg-slate-100 text-slate-700 hover:bg-sky-50 hover:text-[#0F4C81]'
               }`}
             >
               {spec}
-            </button>
+            </motion.button>
           ))}
         </div>
 
         {/* Doctors Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {filteredDoctors.map((doc) => (
-            <div 
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {filteredDoctors.map((doc, idx) => (
+            <motion.div 
               key={doc.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              whileHover={{ y: -6 }}
               className={`bg-white rounded-3xl border shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden group text-left ${
                 doc.isLead ? 'border-2 border-[#0F4C81] ring-2 ring-sky-100' : 'border-slate-200 hover:border-sky-300'
               }`}
             >
               <div>
                 {/* Photo & Badge */}
-                <div className="relative h-56 overflow-hidden bg-slate-100">
+                <div className="relative h-60 sm:h-64 overflow-hidden bg-slate-100">
                   <img 
                     src={doc.image} 
                     alt={doc.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
                   
@@ -143,15 +166,15 @@ const DoctorsDirectory = ({ onOpenAppointment }) => {
                 </div>
 
                 {/* Info */}
-                <div className="p-5 space-y-3">
+                <div className="p-4 sm:p-5 space-y-3">
                   <div>
-                    <h3 className="font-extrabold text-slate-900 text-lg group-hover:text-[#0F4C81] transition leading-snug">
+                    <h3 className="font-extrabold text-slate-900 text-base sm:text-lg group-hover:text-[#0F4C81] transition leading-snug">
                       {doc.name}
                     </h3>
                     <p className="text-xs font-black text-[#0F4C81] mt-0.5">
                       {doc.specialty}
                     </p>
-                    <p className="text-[11px] text-slate-500 font-semibold mt-0.5">
+                    <p className="text-[11px] text-slate-500 font-semibold mt-0.5 leading-snug">
                       {doc.qualification}
                     </p>
                   </div>
@@ -174,7 +197,7 @@ const DoctorsDirectory = ({ onOpenAppointment }) => {
               </div>
 
               {/* Booking CTA */}
-              <div className="p-5 pt-0">
+              <div className="p-4 sm:p-5 pt-0">
                 <button 
                   onClick={() => onOpenAppointment(doc.name)}
                   className="w-full py-3 rounded-xl bg-sky-50 hover:bg-[#0F4C81] text-[#0F4C81] hover:text-white border border-sky-200 font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 transition"
@@ -183,7 +206,7 @@ const DoctorsDirectory = ({ onOpenAppointment }) => {
                   <span>Book Consultation</span>
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

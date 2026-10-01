@@ -1,135 +1,67 @@
 import React, { useState } from 'react';
-import { X, FileText, Search, MessageSquare, CheckCircle2 } from 'lucide-react';
+import { X, FileText, MessageSquare } from 'lucide-react';
 
-const ReportCheckerModal = ({ isOpen, onClose }) => {
-  if (!isOpen) return null;
-
+const ReportRequestForm = ({ onClose }) => {
   const [sampleId, setSampleId] = useState('');
   const [patientPhone, setPatientPhone] = useState('');
-  const [statusResult, setStatusResult] = useState(null);
+  const [isReviewing, setIsReviewing] = useState(false);
 
-  const handleCheck = (e) => {
-    e.preventDefault();
-    if (!sampleId && !patientPhone) return;
-
-    setStatusResult({
-      status: 'Ready',
-      sampleId: sampleId || 'PRO-98421',
-      testName: 'Complete Blood Count (CBC) & Lipid Profile',
-      date: new Date().toLocaleDateString('en-GB'),
-      downloadUrl: '#'
-    });
+  const handleReview = (event) => {
+    event.preventDefault();
+    if (!patientPhone.trim()) return;
+    setIsReviewing(true);
   };
 
-  const handleWhatsAppSend = () => {
-    const text = `Hello PRO CARE Diagnostics,\nPlease send my Lab Report PDF on WhatsApp.\n\n📌 Sample ID / Mobile: ${sampleId || patientPhone}`;
-    window.open(`https://wa.me/919985721155?text=${encodeURIComponent(text)}`, '_blank');
-  };
+  const requestText = `Hello PRO CARE Diagnostics,\nI would like to enquire about my lab report.\nRegistered mobile number: ${patientPhone.trim()}${sampleId.trim() ? `\nSample ID / Bill number: ${sampleId.trim()}` : ''}\nPlease check the report status and let me know whether the PDF is available. Please confirm any verification needed before sharing it.`;
+  const whatsappUrl = `https://wa.me/919985721155?text=${encodeURIComponent(requestText)}`;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
-      <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full overflow-hidden border border-slate-100 relative">
-        
-        {/* Header */}
-        <div className="bg-gradient-to-r from-[#0F4C81] to-[#1E5A96] p-5 text-white flex items-center justify-between">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn" role="dialog" aria-modal="true" aria-labelledby="report-request-title">
+      <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full overflow-hidden border border-slate-100 relative max-h-[90vh] flex flex-col">
+        <div className="bg-gradient-to-r from-[#0F4C81] to-[#1E5A96] p-5 text-white flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 bg-white/10 rounded-xl">
-              <FileText className="w-5 h-5 text-sky-200" />
-            </div>
+            <div className="p-2 bg-white/10 rounded-xl"><FileText className="w-5 h-5 text-sky-200" /></div>
             <div>
-              <h3 className="font-extrabold text-lg leading-tight">Get WhatsApp Lab Reports</h3>
-              <p className="text-xs text-sky-100">Check Report Status or Request PDF</p>
+              <h3 id="report-request-title" className="font-extrabold text-lg leading-tight">Request Your Lab Report</h3>
+              <p className="text-xs text-sky-100">Contact the clinic on WhatsApp</p>
             </div>
           </div>
-          <button 
-            onClick={onClose}
-            className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition"
-          >
-            <X className="w-5 h-5" />
-          </button>
+          <button type="button" onClick={onClose} aria-label="Close report request" className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition"><X className="w-5 h-5" /></button>
         </div>
-
-        {/* Body */}
-        <div className="p-6 text-left space-y-4">
-          {!statusResult ? (
-            <form onSubmit={handleCheck} className="space-y-4">
+        <div className="p-6 text-left space-y-4 overflow-y-auto">
+          <p className="text-xs text-slate-600 leading-relaxed">Report status is confirmed by the clinic. Enter your registered mobile number and sample or bill number, if available, to prepare a WhatsApp enquiry.</p>
+          {!isReviewing ? (
+            <form onSubmit={handleReview} className="space-y-4">
               <div>
-                <label className="block text-xs font-extrabold text-slate-700 mb-1">Sample ID / Bill Number</label>
-                <input 
-                  type="text" 
-                  placeholder="e.g. PRO-98421"
-                  value={sampleId}
-                  onChange={(e) => setSampleId(e.target.value)}
-                  className="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800"
-                />
+                <label htmlFor="report-sample-id" className="block text-xs font-extrabold text-slate-700 mb-1">Sample ID / Bill Number (optional)</label>
+                <input id="report-sample-id" type="text" placeholder="Enter the number printed on your bill" value={sampleId} onChange={event => setSampleId(event.target.value)} className="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800" />
               </div>
-
               <div>
-                <label className="block text-xs font-extrabold text-slate-700 mb-1">Registered Mobile Number *</label>
-                <input 
-                  type="tel" 
-                  required
-                  placeholder="+91 99857 21155"
-                  value={patientPhone}
-                  onChange={(e) => setPatientPhone(e.target.value)}
-                  className="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800"
-                />
+                <label htmlFor="report-phone" className="block text-xs font-extrabold text-slate-700 mb-1">Registered Mobile Number *</label>
+                <input id="report-phone" type="tel" required placeholder="Your registered mobile number" value={patientPhone} onChange={event => setPatientPhone(event.target.value)} className="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800" />
               </div>
-
-              <div className="pt-2 flex flex-col gap-2">
-                <button 
-                  type="submit"
-                  className="w-full bg-[#0F4C81] hover:bg-[#0A365C] text-white py-3 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition"
-                >
-                  <Search className="w-4 h-4" />
-                  <span>Check Status Online</span>
-                </button>
-
-                <button 
-                  type="button"
-                  onClick={handleWhatsAppSend}
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition shadow-xs"
-                >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>Request PDF Report on WhatsApp</span>
-                </button>
-              </div>
+              <button type="submit" className="w-full bg-[#0F4C81] hover:bg-[#0A365C] text-white py-3 rounded-xl font-bold text-xs transition">Review Report Request</button>
             </form>
           ) : (
-            <div className="space-y-3 text-xs">
-              <div className="bg-emerald-50 p-3.5 rounded-xl border border-emerald-200 text-emerald-800 flex items-center gap-2 font-bold">
-                <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-                <span>Report is READY & Verified by Pathologist!</span>
+            <div className="space-y-4 text-xs">
+              <h4 className="font-extrabold text-base text-slate-900">Review Your Request</h4>
+              <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 break-words">
+                <div><strong>Registered Mobile:</strong> {patientPhone.trim()}</div>
+                {sampleId.trim() && <div><strong>Sample ID / Bill Number:</strong> {sampleId.trim()}</div>}
               </div>
-
-              <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-1.5">
-                <div><strong>Sample ID:</strong> {statusResult.sampleId}</div>
-                <div><strong>Test Name:</strong> {statusResult.testName}</div>
-                <div><strong>Date:</strong> {statusResult.date}</div>
-              </div>
-
-              <div className="pt-2 flex flex-col gap-2">
-                <button 
-                  onClick={handleWhatsAppSend}
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2"
-                >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>Receive PDF on WhatsApp (+91 99857 21155)</span>
-                </button>
-                <button 
-                  onClick={() => setStatusResult(null)}
-                  className="text-slate-500 hover:text-slate-800 text-center text-xs py-1"
-                >
-                  Back to Search
-                </button>
-              </div>
+              <p className="text-slate-600 leading-relaxed">Your request has not been sent. Open WhatsApp and press Send. The clinic will check your details and confirm whether your report is available.</p>
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition">
+                <MessageSquare className="w-4 h-4" /> Open WhatsApp to Send Request
+              </a>
+              <button type="button" onClick={() => setIsReviewing(false)} className="w-full text-[#0F4C81] hover:bg-sky-50 rounded-xl py-2 font-bold">Edit Details</button>
             </div>
           )}
         </div>
-
       </div>
     </div>
   );
 };
+
+const ReportCheckerModal = ({ isOpen, onClose }) => isOpen ? <ReportRequestForm onClose={onClose} /> : null;
 
 export default ReportCheckerModal;

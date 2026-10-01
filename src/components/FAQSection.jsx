@@ -20,7 +20,7 @@ const FAQSection = () => {
     {
       category: 'Lab Tests',
       question: 'How and when will I receive my diagnostic lab test reports?',
-      answer: 'Most routine lab test reports (like CBC, Blood Sugar, LFT, KFT) are generated within 6 to 12 hours. You will receive an instant PDF report directly on your registered WhatsApp number and via email.'
+      answer: 'Report preparation time varies by test. Contact the clinic with your registered mobile number and sample ID or bill number to confirm availability and request your report. The clinic will verify your details before sharing it.'
     },
     {
       category: 'Pharmacy',

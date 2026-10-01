@@ -11,10 +11,9 @@ import {
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
-const AppointmentModal = ({ isOpen, onClose, preselectedDoctor = '' }) => {
-  if (!isOpen) return null;
+const AppointmentForm = ({ onClose, preselectedDoctor = '' }) => {
 
-  const [doctor, setDoctor] = useState(preselectedDoctor || 'Dr. Mohd. Vaseem (Pulmonologist & Diabetologist)');
+  const [doctor, setDoctor] = useState(preselectedDoctor === 'Dr. Gayatri' ? 'Dr. Gayatri (Dentist)' : preselectedDoctor || 'Dr. Mohd. Vaseem (Pulmonologist, Chest & Diabetologist)');
   const [patientName, setPatientName] = useState('');
   const [patientPhone, setPatientPhone] = useState('');
   const [appointmentDate, setAppointmentDate] = useState('');
@@ -28,7 +27,8 @@ const AppointmentModal = ({ isOpen, onClose, preselectedDoctor = '' }) => {
     'Dr. Mohd. Vaseem (Pulmonologist, Chest & Diabetologist)',
     'Dr. Fatima Begum (Gynecologist & Obstetrician)',
     'Dr. Syed Ahmed Farooqui (Pediatrician)',
-    'Dr. S. K. Sharma (Cardiologist)'
+    'Dr. S. K. Sharma (Cardiologist)',
+    'Dr. Gayatri (Dentist)'
   ];
 
   const timeSlots = ['10:00 AM', '10:30 AM', '11:30 AM', '04:30 PM', '06:00 PM', '07:30 PM'];
@@ -283,5 +283,7 @@ const AppointmentModal = ({ isOpen, onClose, preselectedDoctor = '' }) => {
     </div>
   );
 };
+
+const AppointmentModal = ({ isOpen, ...props }) => isOpen ? <AppointmentForm {...props} /> : null;
 
 export default AppointmentModal;
