@@ -14,16 +14,9 @@ import {
 } from 'lucide-react';
 import Logo from './Logo';
 
-const Header = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpenReportModal }) => {
+const Header = ({ onOpenAppointment, onOpenReportModal }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const handleNavClick = (id) => {
-    setIsMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <header className="sticky top-0 z-40 bg-white shadow-md transition-all">
@@ -64,40 +57,39 @@ const Header = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
       <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between gap-4">
         
         {/* Big Clear Logo */}
-        <div 
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        <a href="#home" aria-label="PROCARE homepage"
           className="cursor-pointer hover:opacity-95 transition transform hover:scale-[1.02] shrink-0 py-1"
         >
           <Logo />
-        </div>
+        </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-4 xl:gap-6 font-bold text-slate-700 text-sm md:text-base">
-          <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-[#0F4C81] font-extrabold transition">
+        <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-4 xl:gap-6 font-bold text-slate-700 text-sm md:text-base">
+          <a href="#home" className="hover:text-[#0F4C81] font-extrabold transition">
             Home
-          </button>
-          <button onClick={() => handleNavClick('about')} className="hover:text-[#0F4C81] transition">
+          </a>
+          <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#0F4C81] transition">
             About
-          </button>
-          <button onClick={() => handleNavClick('doctors')} className="hover:text-[#0F4C81] transition">
+          </a>
+          <a href="#doctors" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#0F4C81] transition">
             Doctors
-          </button>
-          <button onClick={() => handleNavClick('services')} className="hover:text-[#0F4C81] transition">
+          </a>
+          <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#0F4C81] transition">
             Services
-          </button>
-          <button onClick={() => { setIsMobileMenuOpen(false); onOpenLabModal(); }} className="hover:text-[#0F4C81] transition">
+          </a>
+          <a href="/lab-tests" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#0F4C81] transition">
             Lab Tests
-          </button>
-          <button onClick={() => handleNavClick('pharmacy')} className="hover:text-[#0F4C81] transition">
+          </a>
+          <a href="#pharmacy" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#0F4C81] transition">
             Pharmacy
-          </button>
+          </a>
           <a href="/gallery" className="hover:text-[#0F4C81] transition">Gallery</a>
-          <button onClick={() => handleNavClick('faq')} className="hover:text-[#0F4C81] transition">
+          <a href="#faq" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#0F4C81] transition">
             FAQ
-          </button>
-          <button onClick={() => handleNavClick('contact')} className="hover:text-[#0F4C81] transition">
+          </a>
+          <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#0F4C81] transition">
             Contact
-          </button>
+          </a>
         </nav>
 
         {/* Header Action Button */}
@@ -116,6 +108,8 @@ const Header = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="lg:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 transition border border-slate-200"
           aria-label="Toggle menu"
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-navigation"
         >
           {isMobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
         </button>
@@ -123,31 +117,31 @@ const Header = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
 
       {/* Mobile Navigation Drawer */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3 animate-fadeIn">
+        <nav id="mobile-navigation" aria-label="Mobile navigation" className="lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3 animate-fadeIn">
           <div className="grid grid-cols-2 gap-2 pb-3 border-b border-slate-100 text-sm font-medium text-slate-700">
-            <button onClick={() => handleNavClick('services')} className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 hover:bg-sky-50 text-slate-800">
+            <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 hover:bg-sky-50 text-slate-800">
               <Stethoscope className="w-4 h-4 text-sky-600" />
               <span>Services</span>
-            </button>
-            <button onClick={() => handleNavClick('doctors')} className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 hover:bg-sky-50 text-slate-800">
+            </a>
+            <a href="#doctors" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 hover:bg-sky-50 text-slate-800">
               <Activity className="w-4 h-4 text-sky-600" />
               <span>Doctors</span>
-            </button>
-            <button onClick={() => { setIsMobileMenuOpen(false); onOpenLabModal(); }} className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 hover:bg-sky-50 text-slate-800">
+            </a>
+            <a href="/lab-tests" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 hover:bg-sky-50 text-slate-800">
               <FileText className="w-4 h-4 text-sky-600" />
               <span>Lab Tests</span>
-            </button>
-            <button onClick={() => handleNavClick('pharmacy')} className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 hover:bg-sky-50 text-slate-800">
+            </a>
+            <a href="#pharmacy" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 hover:bg-sky-50 text-slate-800">
               <Pill className="w-4 h-4 text-sky-600" />
               <span>Pharmacy</span>
-            </button>
+            </a>
           </div>
 
           <div className="flex flex-col gap-2 pt-1 text-sm font-medium">
-            <button onClick={() => handleNavClick('about')} className="text-left py-2 px-2 text-slate-700 hover:text-sky-700">About PROCARE</button>
+            <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="text-left py-2 px-2 text-slate-700 hover:text-sky-700">About PROCARE</a>
             <a href="/gallery" className="text-left py-2 px-2 text-slate-700 hover:text-sky-700">Gallery</a>
-            <button onClick={() => handleNavClick('faq')} className="text-left py-2 px-2 text-slate-700 hover:text-sky-700">Frequently Asked Questions</button>
-            <button onClick={() => handleNavClick('contact')} className="text-left py-2 px-2 text-slate-700 hover:text-sky-700">Contact & Directions</button>
+            <a href="#faq" onClick={() => setIsMobileMenuOpen(false)} className="text-left py-2 px-2 text-slate-700 hover:text-sky-700">Frequently Asked Questions</a>
+            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-left py-2 px-2 text-slate-700 hover:text-sky-700">Contact & Directions</a>
             <button onClick={onOpenReportModal} className="text-left py-2 px-2 text-sky-700 font-bold flex items-center justify-between">
               <span>Request Lab Reports</span>
               <MessageSquare className="w-4 h-4" />
@@ -163,7 +157,7 @@ const Header = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
               <span>Book Appointment Now</span>
             </button>
           </div>
-        </div>
+        </nav>
       )}
     </header>
   );

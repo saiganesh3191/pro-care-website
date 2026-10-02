@@ -41,7 +41,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="py-16 bg-white relative overflow-hidden">
+    <section id="appointment" aria-labelledby="appointment-heading" className="py-16 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         
         {/* Header */}
@@ -49,11 +49,11 @@ const HowItWorks = () => {
           <span className="text-[#0F4C81] text-xs uppercase font-extrabold tracking-widest bg-sky-50 px-3 py-1 rounded-full border border-sky-100">
             Simple 4-Step Process
           </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 id="appointment-heading" className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
             How It Works
           </h2>
           <p className="text-slate-600 text-sm md:text-base">
-            Booking your doctor consultation, diagnostic lab tests, or pharmacy order takes less than 60 seconds.
+            Choose your service and send an appointment, lab test or pharmacy enquiry. Reception will confirm availability and timing.
           </p>
         </div>
 
@@ -108,7 +108,7 @@ const HowItWorks = () => {
               <Sparkles className="w-6 h-6 text-sky-300" />
             </div>
             <div>
-              <h4 className="font-extrabold text-lg">Need Assistance with Booking?</h4>
+              <h3 className="font-extrabold text-lg">Need Assistance with Booking?</h3>
               <p className="text-xs text-sky-100">Our customer support team is available on WhatsApp and phone: Mon–Sat 7 AM–9 PM; Sun 8 AM–2 PM.</p>
             </div>
           </div>

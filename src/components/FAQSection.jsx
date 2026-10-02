@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, HelpCircle, Search, MessageCircle } from 'lucide-react';
+import { ChevronDown, HelpCircle, Search } from 'lucide-react';
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(0);
@@ -15,7 +15,7 @@ const FAQSection = () => {
     {
       category: 'Lab Tests',
       question: 'Is home sample collection available for diagnostic lab tests?',
-      answer: 'Yes! PROCARE offers home sample collection for blood tests, diabetes profiles, lipid profiles, and thyroid packages across Musheerabad, and surrounding areas in Hyderabad. You can select "Home Collection" when booking online.'
+      answer: 'Select "Home Collection" on the lab tests page to request pickup. Reception will confirm coverage, availability, timing and any collection charges.'
     },
     {
       category: 'Lab Tests',
@@ -25,12 +25,12 @@ const FAQSection = () => {
     {
       category: 'Pharmacy',
       question: 'Can I order medicines online and get home delivery?',
-      answer: 'Yes, our in-house licensed pharmacy provides 100% genuine medicines with doorstep delivery. Simply upload your doctor’s prescription or type your medicine list on our website or WhatsApp.'
+      answer: 'Submit your prescription or medicine list through the pharmacy form or WhatsApp. Reception will confirm stock, price and whether delivery is available.'
     },
     {
       category: 'Timings',
       question: 'What are the operating clinic timings for PROCARE Polyclinic?',
-      answer: 'Our poly clinic is open Monday to Saturday from 7:00 AM to 9:00 PM, and on Sundays from 8:00 AM to 2:00 PM. Pharmacy and sample collection operate during all clinic hours.'
+      answer: 'Our poly clinic is open Monday to Saturday from 7:00 AM to 9:00 PM, and on Sundays from 8:00 AM to 2:00 PM. Contact reception to confirm pharmacy and sample collection availability.'
     },
     {
       category: 'General',
@@ -49,7 +49,7 @@ const FAQSection = () => {
   });
 
   return (
-    <section id="faq" className="py-16 bg-slate-50 relative">
+    <section aria-labelledby="faq-heading" id="faq" className="py-16 bg-slate-50 relative">
       <div className="max-w-4xl mx-auto px-4">
         
         {/* Header */}
@@ -57,7 +57,7 @@ const FAQSection = () => {
           <span className="text-[#0F4C81] text-xs uppercase font-extrabold tracking-widest bg-sky-100/70 px-3 py-1 rounded-full border border-sky-200">
             Got Questions?
           </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 id="faq-heading" className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
             Frequently Asked Questions
           </h2>
           <p className="text-slate-600 text-sm md:text-base">
@@ -106,6 +106,8 @@ const FAQSection = () => {
                   className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden transition"
                 >
                   <button 
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${idx}`}
                     onClick={() => setOpenIndex(isOpen ? -1 : idx)}
                     className="w-full p-4 text-left font-bold text-slate-900 text-sm md:text-base flex items-center justify-between gap-4 hover:text-[#0F4C81] transition"
                   >
@@ -116,11 +118,9 @@ const FAQSection = () => {
                     <ChevronDown className={`w-4 h-4 text-slate-400 shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#0F4C81]' : ''}`} />
                   </button>
 
-                  {isOpen && (
-                    <div className="px-4 pb-4 pt-1 text-slate-600 text-xs md:text-sm leading-relaxed border-t border-slate-100 text-left bg-sky-50/30">
+                    <div id={`faq-answer-${idx}`} hidden={!isOpen} className="px-4 pb-4 pt-1 text-slate-600 text-xs md:text-sm leading-relaxed border-t border-slate-100 text-left bg-sky-50/30">
                       {faq.answer}
                     </div>
-                  )}
                 </div>
               );
             })

@@ -5,7 +5,6 @@ import {
   Microscope, 
   CalendarCheck, 
   Shield, 
-  ChevronRight, 
   Calendar, 
   TestTube, 
   Pill,
@@ -14,7 +13,7 @@ import {
 
 const Hero = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal }) => {
   return (
-    <section className="relative bg-gradient-to-b from-[#F0F7FF] via-[#EBF5FF] to-white pt-8 pb-16 overflow-hidden">
+    <section id="home" aria-labelledby="hero-heading" className="relative bg-gradient-to-b from-[#F0F7FF] via-[#EBF5FF] to-white pt-8 pb-16 overflow-hidden">
       {/* Background Orbs */}
       <motion.div 
         animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.6, 0.4] }}
@@ -44,11 +43,11 @@ const Hero = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal }) => {
               className="inline-flex items-center gap-2 bg-sky-100/90 text-[#0F4C81] px-4 py-2 rounded-full text-xs md:text-sm font-extrabold tracking-wide uppercase border border-sky-200 shadow-xs cursor-default"
             >
               <Sparkles className="w-4 h-4 text-sky-600 animate-pulse" />
-              <span>YOUR FAMILY'S HEALTH, OUR PRIORITY</span>
+              <span>PROCARE Polyclinic | Musheerabad, Hyderabad</span>
             </motion.div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.08]">
+            <h1 id="hero-heading" className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.08]">
               Quality Care <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0F4C81] via-[#165DA0] to-sky-600">
                 Closer to You
@@ -165,10 +164,10 @@ const Hero = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal }) => {
               className="bg-white rounded-3xl shadow-xl border border-sky-100 p-4 space-y-2.5"
             >
               <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-                <h3 className="font-extrabold text-slate-900 text-sm flex items-center gap-1.5">
+                <h2 className="font-extrabold text-slate-900 text-sm flex items-center gap-1.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#0F4C81]"></span>
                   Quick Book Now
-                </h3>
+                </h2>
                 <span className="text-[10px] font-extrabold bg-sky-100 text-[#0F4C81] px-2.5 py-0.5 rounded-full">Instant</span>
               </div>
 

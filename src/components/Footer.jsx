@@ -17,19 +17,20 @@ const Footer = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
   const googleMapLocationUrl = clinic.maps;
 
   return (
-    <footer id="contact" className="bg-slate-900 text-white pt-16 pb-8 relative overflow-hidden">
+    <footer id="contact" aria-labelledby="contact-heading" className="bg-slate-900 text-white pt-16 pb-8 relative overflow-hidden">
       
+      <h2 id="contact-heading" className="sr-only">PROCARE Clinic Timings, Address &amp; Contact</h2>
       {/* Top Highlight Cards Bar matching client mockup bottom bar */}
       <div className="max-w-7xl mx-auto px-4 mb-14">
         <div className="bg-white rounded-3xl p-6 md:p-8 shadow-2xl text-slate-900 grid grid-cols-1 md:grid-cols-3 gap-6 border border-slate-100">
           
           {/* Box 1: Clinic Timings */}
-          <div className="flex items-start gap-4 text-left p-3.5 rounded-2xl bg-sky-50/60 border border-sky-100">
+          <section id="timings" aria-labelledby="timings-heading" className="flex items-start gap-4 text-left p-3.5 rounded-2xl bg-sky-50/60 border border-sky-100">
             <div className="p-3 bg-[#0F4C81] text-white rounded-xl shrink-0 shadow-sm">
               <Clock className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="font-extrabold text-slate-900 text-sm">Clinic Timings</h4>
+              <h3 id="timings-heading" className="font-extrabold text-slate-900 text-sm">Clinic Timings</h3>
               <p className="text-xs text-slate-600 mt-1">
                 <strong>Mon - Sat:</strong> 7:00 AM - 9:00 PM<br />
                 <strong>Sunday:</strong> 8:00 AM - 2:00 PM
@@ -38,7 +39,7 @@ const Footer = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
                 Open All 7 Days
               </span>
             </div>
-          </div>
+          </section>
 
           {/* Box 2: Call & Contact */}
           <div className="flex items-start gap-4 text-left p-3.5 rounded-2xl bg-emerald-50/60 border border-emerald-100">
@@ -46,7 +47,7 @@ const Footer = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
               <Phone className="w-6 h-6 animate-pulse" />
             </div>
             <div>
-              <h4 className="font-extrabold text-slate-900 text-sm">Call Clinic Direct</h4>
+              <h3 className="font-extrabold text-slate-900 text-sm">Call Clinic Direct</h3>
               <a 
                 href="tel:+919848188898"
                 className="text-base sm:text-lg font-black text-[#0F4C81] hover:text-sky-700 transition block mt-0.5"
@@ -63,15 +64,15 @@ const Footer = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
           </div>
 
           {/* Box 3: Location & Get Directions Button */}
-          <div className="flex items-start gap-4 text-left p-3.5 rounded-2xl bg-amber-50/60 border border-amber-100">
+          <section id="location" aria-labelledby="location-heading" className="flex items-start gap-4 text-left p-3.5 rounded-2xl bg-amber-50/60 border border-amber-100">
             <div className="p-3 bg-rose-600 text-white rounded-xl shrink-0 shadow-sm">
               <MapPin className="w-6 h-6" />
             </div>
             <div className="flex-1">
-              <h4 className="font-extrabold text-slate-900 text-sm">Exact Location</h4>
-              <p className="text-xs text-slate-600 mt-1 leading-snug">
-                Beside Marjan Hotel, Diara Market, Mushirabad, Hyderabad
-              </p>
+              <h3 id="location-heading" className="font-extrabold text-slate-900 text-sm">Clinic Address &amp; Location</h3>
+              <address className="text-xs text-slate-600 mt-1 leading-snug not-italic">
+                {clinic.address}
+              </address>
               <a 
                 href={googleMapLocationUrl} 
                 target="_blank" 
@@ -82,7 +83,7 @@ const Footer = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
                 <span>Get Directions</span>
               </a>
             </div>
-          </div>
+          </section>
 
         </div>
       </div>
@@ -132,7 +133,7 @@ const Footer = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
 
         {/* Col 2: Quick Links */}
         <div className="md:col-span-3 space-y-3">
-          <h4 className="font-extrabold text-sm text-sky-200 uppercase tracking-wider">Medical Services</h4>
+          <h3 className="font-extrabold text-sm text-sky-200 uppercase tracking-wider">Medical Services</h3>
           <ul className="space-y-2 text-xs text-slate-300 font-medium">
             <li>
               <button onClick={onOpenAppointment} className="hover:text-white transition flex items-center gap-1.5">
@@ -160,12 +161,20 @@ const Footer = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
               </button>
             </li>
           </ul>
+          <nav aria-label="Homepage sections" className="flex flex-wrap gap-x-3 gap-y-2 text-xs text-slate-300">
+            <a href="#doctors" className="hover:text-white">Doctors</a>
+            <a href="#services" className="hover:text-white">Services</a>
+            <a href="#lab-tests" className="hover:text-white">Lab Tests</a>
+            <a href="#pharmacy" className="hover:text-white">Pharmacy</a>
+            <a href="#timings" className="hover:text-white">Timings</a>
+            <a href="#contact" className="hover:text-white">Contact</a>
+          </nav>
           <a href="/gallery" className="inline-block text-sky-200 hover:text-white text-sm font-bold">View Gallery</a>
         </div>
 
         {/* Col 3: Map Preview Card */}
         <div className="md:col-span-5 space-y-3">
-          <h4 className="font-extrabold text-sm text-sky-200 uppercase tracking-wider">Clinic Location Map</h4>
+          <h3 className="font-extrabold text-sm text-sky-200 uppercase tracking-wider">Clinic Location Map</h3>
           
           <div className="relative rounded-2xl overflow-hidden border border-slate-700 h-48 shadow-lg group">
             <iframe 

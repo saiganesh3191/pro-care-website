@@ -31,7 +31,7 @@ const Services = ({
     {
       id: 'diagnostics',
       title: 'Diagnostics & Lab Tests',
-      description: 'Accurate & reliable reports with automated lab machinery and NABL standard protocols.',
+      description: 'Blood tests, diabetes profiles, thyroid tests and other diagnostic investigations. Enquire about availability and preparation.',
       image: '/images/lab_test.png',
       badge: 'Home Collection',
       actionText: 'Book Lab Tests',
@@ -41,7 +41,7 @@ const Services = ({
     {
       id: 'pharmacy',
       title: 'Pharmacy',
-      description: 'Genuine medicines at your convenience with 100% authentic stock & prescription fulfillment.',
+      description: 'Request medicines and prescription fulfilment through the clinic pharmacy. Confirm stock with reception.',
       image: '/images/pharmacy.png',
       badge: 'Doorstep Delivery',
       actionText: 'Order Now',
@@ -53,7 +53,7 @@ const Services = ({
       title: 'Day Care Procedures',
       description: 'Safe, comfortable and efficient care for minor surgeries, IV infusions & observations.',
       image: '/images/daycare.png',
-      badge: '24/7 Observation',
+      badge: 'Day Care Enquiries',
       actionText: 'Know More',
       icon: BedDouble,
       handler: onOpenDaycareModal
@@ -63,7 +63,7 @@ const Services = ({
       title: 'Preventive Health Checkups',
       description: 'Stay healthy with regular screenings, comprehensive body checkups & tailored packages.',
       image: '/images/preventive.png',
-      badge: 'Discounted Bundles',
+      badge: 'Health Checkups',
       actionText: 'View Packages',
       icon: HeartPulse,
       handler: onOpenPackagesModal
@@ -71,7 +71,7 @@ const Services = ({
   ];
 
   return (
-    <section id="services" className="py-20 bg-white relative overflow-hidden">
+    <section aria-labelledby="services-heading" id="services" className="py-20 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         
         {/* Section Header */}
@@ -86,7 +86,7 @@ const Services = ({
             <span className="text-[#0F4C81] text-xs sm:text-sm uppercase font-extrabold tracking-widest bg-sky-50 px-4 py-1.5 rounded-full border border-sky-100">
               Complete Healthcare Under One Roof
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+            <h2 id="services-heading" className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
               Our Services
             </h2>
             <p className="text-slate-600 text-base md:text-lg max-w-2xl font-medium">

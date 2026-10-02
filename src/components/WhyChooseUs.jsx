@@ -12,21 +12,21 @@ const WhyChooseUs = () => {
   const reasons = [
     {
       title: 'Qualified & Experienced Doctors',
-      description: 'Senior specialists led by Dr. Mohd Vaseem (MBBS, MD, FCCP (USA), CCEBDM, FCD) with decades of clinical expertise.',
+      description: 'Senior specialists led by Dr. Mohd Vaseem (MBBS, MD, FCCP (USA), CCEBDM, FCD) with 15+ years of clinical experience.',
       icon: Award,
       bgColor: 'bg-rose-50/90 border-rose-200/80 text-rose-700',
       iconBg: 'bg-rose-100 text-rose-700'
     },
     {
       title: 'Modern Diagnostic Facilities',
-      description: 'Fully automated NABL standard lab machinery ensuring precise, fast and reliable diagnostic test results.',
+      description: 'Blood tests, diabetes testing, thyroid testing and other investigations. Contact reception for availability and preparation instructions.',
       icon: Microscope,
       bgColor: 'bg-sky-50/90 border-sky-200/80 text-[#0F4C81]',
       iconBg: 'bg-sky-100 text-[#0F4C81]'
     },
     {
       title: 'In-House Pharmacy',
-      description: 'Complete stock of genuine medicines, inhalers, diabetes supplies & doorstep delivery.',
+      description: 'Request medicines and prescription fulfilment through the clinic pharmacy. Reception confirms stock and delivery availability.',
       icon: Pill,
       bgColor: 'bg-emerald-50/90 border-emerald-200/80 text-emerald-700',
       iconBg: 'bg-emerald-100 text-emerald-700'
@@ -41,8 +41,8 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-white via-sky-50/50 to-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 text-center">
+    <section aria-labelledby="why-choose-us-heading" id="about" className="py-20 bg-gradient-to-b from-white via-sky-50/50 to-white relative overflow-hidden">
+      <div id="why-choose-us" className="max-w-7xl mx-auto px-4 text-center">
         
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -54,7 +54,7 @@ const WhyChooseUs = () => {
           <span className="text-[#0F4C81] text-xs sm:text-sm uppercase font-extrabold tracking-widest bg-sky-100/70 px-4 py-1.5 rounded-full border border-sky-200">
             Trusted Healthcare Standard
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+          <h2 id="why-choose-us-heading" className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
             Why Choose PROCARE?
           </h2>
           <p className="text-slate-600 text-base md:text-lg font-medium">
@@ -93,7 +93,7 @@ const WhyChooseUs = () => {
 
                 <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center gap-2 text-slate-600 text-xs font-bold">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>PROCARE Verified Standard</span>
+                  <span>Care at PROCARE</span>
                 </div>
               </motion.div>
             );

@@ -21,20 +21,18 @@ const DoctorsDirectory = ({ onOpenAppointment }) => {
       experience: '15+ Years Clinical Experience',
       affiliation: 'Critical Care & Sleep Specialist · General Physician & Diabetologist · Infectious Disease Specialist',
       timings: clinic.doctorTimings,
-      rating: '5.0',
       image: '/images/dr.vassem.png',
       badge: 'Medical Director & Lead Physician',
       isLead: true
     },
     {
-      id: 'doc-[#gayatri]',
+      id: 'doc-gayatri',
       name: 'Dr. Gayathri',
       specialty: 'Dentistry (Endodontics & Prosthodontics)',
       qualification: 'BDS, Fellowship in Rotary Endodontics & Fixed Prosthodontics',
       experience: 'Masters in Bioclear Concept',
-      affiliation: 'Dental Care Specialist & Consultant Surgeon',
+      affiliation: 'Dental Care',
       timings: 'Contact reception to confirm consultation availability',
-      rating: '4.9',
       image: '/images/dr-gayatri.jpeg',
       badge: 'Dental Care Specialist',
       isLead: false
@@ -53,7 +51,7 @@ const DoctorsDirectory = ({ onOpenAppointment }) => {
       );
 
   return (
-    <section id="doctors" className="py-16 sm:py-20 bg-white relative overflow-hidden">
+    <section aria-labelledby="doctors-heading" id="doctors" className="py-16 sm:py-20 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 text-center">
         
         {/* Section Header */}
@@ -67,7 +65,7 @@ const DoctorsDirectory = ({ onOpenAppointment }) => {
           <span className="text-[#0F4C81] text-xs sm:text-sm uppercase font-extrabold tracking-widest bg-sky-50 px-4 py-1.5 rounded-full border border-sky-100">
             Expert Medical Director & Specialist Panel
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+          <h2 id="doctors-heading" className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
             Consult Our Doctors
           </h2>
           <p className="text-slate-600 text-sm sm:text-base md:text-lg font-medium">
@@ -121,10 +119,10 @@ const DoctorsDirectory = ({ onOpenAppointment }) => {
                     {doc.badge}
                   </span>
 
-                  <div className="absolute bottom-3 right-3 bg-amber-400 text-slate-950 font-black text-xs px-2.5 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                  {doc.rating && <div className="absolute bottom-3 right-3 bg-amber-400 text-slate-950 font-black text-xs px-2.5 py-1 rounded-lg flex items-center gap-1 shadow-sm">
                     <Star className="w-3.5 h-3.5 fill-slate-950" />
                     <span>{doc.rating}</span>
-                  </div>
+                  </div>}
                 </div>
 
                 {/* Info */}

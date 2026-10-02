@@ -6,21 +6,21 @@ const StatsCounter = () => {
   const stats = [
     {
       icon: Award,
-      number: '16+',
-      label: 'Years Leadership',
+      number: '15+',
+      label: 'Years Clinical Experience',
       sublabel: ''
     },
     {
       icon: Users,
-      number: '25,000+',
-      label: 'Patients Treated',
-      sublabel: 'Across Hyderabad & Telangana'
+      number: '2',
+      label: 'Doctor Consultations',
+      sublabel: 'Pulmonology & Dentistry'
     },
     {
       icon: ShieldCheck,
-      number: '100%',
-      label: 'Accurate Reports',
-      sublabel: 'NABL Diagnostic Standard'
+      number: 'Lab Tests',
+      label: 'Diagnostic Enquiries',
+      sublabel: 'Ask reception about available tests'
     },
     {
       icon: Clock,
@@ -31,7 +31,7 @@ const StatsCounter = () => {
   ];
 
   return (
-    <section className="py-10 bg-gradient-to-r from-[#0F4C81] via-[#165DA0] to-[#0A365C] text-white relative overflow-hidden shadow-inner">
+    <section aria-label="Clinic overview" className="py-10 bg-gradient-to-r from-[#0F4C81] via-[#165DA0] to-[#0A365C] text-white relative overflow-hidden shadow-inner">
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {stats.map((stat, idx) => {

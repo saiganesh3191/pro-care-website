@@ -4,11 +4,8 @@ import {
   ChevronRight, 
   TestTube, 
   Pill, 
-  Smartphone, 
-  ShoppingBag, 
   Bike, 
   MessageSquare,
-  FileCheck,
   Search,
   Check
 } from 'lucide-react';
@@ -27,13 +24,13 @@ const PromoSection = ({ onOpenLabModal, onOpenPharmacyModal, onOpenReportModal }
   const [selectedQuickTest, setSelectedQuickTest] = useState('Complete Blood Count (CBC)');
 
   return (
-    <section id="lab-tests" className="py-16 bg-gradient-to-b from-sky-50/70 to-white">
+    <section aria-label="Diagnostics and pharmacy" className="py-16 bg-gradient-to-b from-sky-50/70 to-white">
       <div className="max-w-7xl mx-auto px-4">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
           {/* Card 1: Book Your Lab Tests Online */}
-          <div className="bg-gradient-to-br from-sky-100/80 via-sky-50 to-white p-6 sm:p-8 rounded-3xl border border-sky-200/80 shadow-md flex flex-col justify-between relative overflow-hidden group">
+          <section id="lab-tests" aria-labelledby="lab-heading" className="bg-gradient-to-br from-sky-100/80 via-sky-50 to-white p-6 sm:p-8 rounded-3xl border border-sky-200/80 shadow-md flex flex-col justify-between relative overflow-hidden group">
             
             <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
               
@@ -90,12 +87,12 @@ const PromoSection = ({ onOpenLabModal, onOpenPharmacyModal, onOpenReportModal }
               <div className="sm:col-span-7 space-y-4 text-left">
                 <div className="inline-flex items-center gap-1.5 bg-sky-200/60 text-[#0F4C81] px-3 py-1 rounded-full text-xs font-bold">
                   <TestTube className="w-3.5 h-3.5" />
-                  <span>NABL Standard Diagnostics</span>
+                  <span>Diagnostics & Lab Tests</span>
                 </div>
 
-                <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight">
+                <h2 id="lab-heading" className="text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight">
                   Book Your Lab Tests Online
-                </h3>
+                </h2>
 
                 {/* Bullet List */}
                 <ul className="space-y-2.5 text-slate-700 text-xs md:text-sm font-medium">
@@ -105,35 +102,34 @@ const PromoSection = ({ onOpenLabModal, onOpenPharmacyModal, onOpenReportModal }
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#0F4C81] shrink-0" />
-                    <span>Accurate & reliable digital reports</span>
+                    <span>Request your lab report through reception</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#0F4C81] shrink-0" />
-                    <span>Home sample collection available</span>
+                    <span>Request home sample collection</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#0F4C81] shrink-0" />
-                    <span>Get reports on WhatsApp / Email</span>
+                    <span>Ask reception about report availability</span>
                   </li>
                 </ul>
 
                 <div className="pt-2">
-                  <button 
-                    onClick={onOpenLabModal}
+                  <a href="/lab-tests"
                     className="btn-glow bg-gradient-to-r from-[#0F4C81] to-[#165DA0] text-white px-6 py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition"
                   >
                     <span>Book Lab Tests Now</span>
                     <ChevronRight className="w-4 h-4" />
-                  </button>
+                  </a>
                 </div>
               </div>
 
             </div>
 
-          </div>
+          </section>
 
           {/* Card 2: Order Medicines from Our Pharmacy */}
-          <div id="pharmacy" className="bg-gradient-to-br from-sky-100/80 via-blue-50 to-white p-6 sm:p-8 rounded-3xl border border-sky-200/80 shadow-md flex flex-col justify-between relative overflow-hidden group">
+          <section id="pharmacy" aria-labelledby="pharmacy-heading" className="bg-gradient-to-br from-sky-100/80 via-blue-50 to-white p-6 sm:p-8 rounded-3xl border border-sky-200/80 shadow-md flex flex-col justify-between relative overflow-hidden group">
             
             <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
               
@@ -155,7 +151,7 @@ const PromoSection = ({ onOpenLabModal, onOpenPharmacyModal, onOpenReportModal }
 
                 <div className="w-full mt-3 bg-white p-2.5 rounded-xl border border-sky-100 shadow-xs flex items-center justify-between text-xs font-semibold text-slate-700">
                   <span className="flex items-center gap-1.5 text-emerald-700">
-                    <Check className="w-4 h-4" /> 100% Genuine Medicines
+                    <Check className="w-4 h-4" /> Prescription Enquiries
                   </span>
                   <span className="text-slate-500 font-normal">Fast Delivery</span>
                 </div>
@@ -168,15 +164,15 @@ const PromoSection = ({ onOpenLabModal, onOpenPharmacyModal, onOpenReportModal }
                   <span>In-House Licensed Pharmacy</span>
                 </div>
 
-                <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight">
+                <h2 id="pharmacy-heading" className="text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight">
                   Order Medicines from Our Pharmacy
-                </h3>
+                </h2>
 
                 {/* Bullet List */}
                 <ul className="space-y-2.5 text-slate-700 text-xs md:text-sm font-medium">
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#0F4C81] shrink-0" />
-                    <span>Genuine medicines & healthcare products</span>
+                    <span>Medicines & healthcare product enquiries</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#0F4C81] shrink-0" />
@@ -209,7 +205,7 @@ const PromoSection = ({ onOpenLabModal, onOpenPharmacyModal, onOpenReportModal }
 
             </div>
 
-          </div>
+          </section>
 
         </div>
 

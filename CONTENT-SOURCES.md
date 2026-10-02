@@ -7,3 +7,10 @@
 - Directions link supplied by user: https://share.google/FXTkohVp2q9q1X9kT. The link redirects to Google, but its place destination could not be independently inspected in this environment. The embedded map searches for PROCARE Polyclinic, Diara Market, Musheerabad, Hyderabad; exact pin verification remains outstanding.
 - Gallery photos will be supplied later. The Gallery page displays an honest coming-soon state.
 - Dr. Gayathri's qualifications and photo retained from the existing project; consultation availability is confirmed through reception.
+
+## Homepage SEO scope
+
+- PROCARE remains a landing page with section links. The only additional public routes are `/lab-tests` and `/gallery`.
+- Homepage structured data uses the documented clinic name, primary phone, address and opening hours above. No ratings, patient counts, accuracy guarantees, certifications, awards or unverified postal code are included.
+- The existing card layout is retained with documented information in place of unsupported statistics and ratings.
+- When publishing to another repository, inspect its current branch and port only relevant SEO/content changes. Do not replace the whole repository or overwrite newer deployment code.

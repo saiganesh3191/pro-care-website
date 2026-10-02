@@ -35,22 +35,22 @@ function buildStaticRouteHtml(baseHtml, page) {
       name: 'PROCARE Polyclinic',
       url: 'https://procarepolyclinic.com/',
     },
-    about: {
-      '@type': 'MedicalClinic',
-      name: 'PROCARE Polyclinic',
-      telephone: '+919848188898',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'Beside Marjan Hotel, Diara Market, Mushirabad',
-        addressLocality: 'Hyderabad',
-        addressRegion: 'Telangana',
-        postalCode: '500020',
-        addressCountry: 'IN',
-      },
-    },
+    '@id': `${url}#webpage`,
+    about: { '@id': 'https://procarepolyclinic.com/#clinic' },
+  }
+
+  // Reuse the documented clinic identity, replacing the homepage WebPage node.
+  // Inner pages should not describe homepage-only section anchors as their content.
+  const schemaPattern = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/
+  const homepageSchema = JSON.parse(baseHtml.match(schemaPattern)[1])
+  const { '@context': _context, ...pageNode } = pageSchema
+  const routeSchema = {
+    '@context': homepageSchema['@context'],
+    '@graph': [...homepageSchema['@graph'].filter(node => node['@type'] !== 'WebPage'), pageNode],
   }
 
   return baseHtml
+    .replace(schemaPattern, () => `<script type="application/ld+json">${JSON.stringify(routeSchema)}</script>`)
     .replace(/<title>.*?<\/title>/, `<title>${page.title}</title>`)
     .replace(/(<meta name="description" content=")[^"]*/, `$1${page.description}`)
     .replace(/(<meta name="keywords" content=")[^"]*/, `$1${page.keywords}`)
@@ -60,10 +60,7 @@ function buildStaticRouteHtml(baseHtml, page) {
     .replace(/(<meta property="og:url" content=")[^"]*/, `$1${url}`)
     .replace(/(<meta name="twitter:title" content=")[^"]*/, `$1${page.title}`)
     .replace(/(<meta name="twitter:description" content=")[^"]*/, `$1${page.description}`)
-    .replace(
-      '</head>',
-      `    <script type="application/ld+json">${JSON.stringify(pageSchema)}</script>\n  </head>`,
-    )
+
 }
 
 // https://vite.dev/config/
