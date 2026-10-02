@@ -97,8 +97,8 @@ export const LabTestForm = ({ onClose, standalone = false }) => {
   };
 
   const chosenNames = chosenTests.map(test => `${test.name} (\u20b9${test.price})`).join('\n- ');
-  const requestText = `Hello PRO CARE Diagnostics,\nI would like to request lab tests.\n\nPatient: ${patientName.trim()}\nPhone: ${patientPhone.trim()}\n\nSelected investigations:\n- ${chosenNames}\n\nListed test total: \u20b9${totalPrice}\nSample collection: ${collectionType}\nPreferred date: ${preferredDate || 'Earliest available slot'}\n${collectionType === 'Home Collection' ? `Address: ${address.trim()}` : 'Collection at clinic'}\n\nPlease confirm availability, collection charges, final price, preparation instructions and timing.`;
-  const whatsappUrl = `https://wa.me/919985721155?text=${encodeURIComponent(requestText)}`;
+  const requestText = `Hello PROCARE Diagnostics,\nI would like to request lab tests.\n\nPatient: ${patientName.trim()}\nPhone: ${patientPhone.trim()}\n\nSelected investigations:\n- ${chosenNames}\n\nListed test total: \u20b9${totalPrice}\nSample collection: ${collectionType}\nPreferred date: ${preferredDate || 'Earliest available slot'}\n${collectionType === 'Home Collection' ? `Address: ${address.trim()}` : 'Collection at clinic'}\n\nPlease confirm availability, collection charges, final price, preparation instructions and timing.`;
+  const whatsappUrl = `https://wa.me/919848188898?text=${encodeURIComponent(requestText)}`;
 
   const [minDate] = useState(() => {
     const today = new Date();
@@ -117,7 +117,7 @@ export const LabTestForm = ({ onClose, standalone = false }) => {
             </div>
             <div>
               <h3 className="font-extrabold text-base sm:text-lg leading-tight">Official Diagnostic Investigations</h3>
-              <p className="text-xs text-sky-100">PRO CARE Lab Price List • Home Sample Pickup</p>
+              <p className="text-xs text-sky-100">PROCARE Lab Price List • Home Sample Pickup</p>
             </div>
           </div>
           {!standalone && <button
@@ -166,7 +166,7 @@ export const LabTestForm = ({ onClose, standalone = false }) => {
                     <MapPin className="w-4 h-4 text-sky-600 shrink-0" />
                     <div className="text-left">
                       <div className="font-extrabold">Visit Clinic</div>
-                      <div className="text-[10px] font-medium text-slate-500">Aghapura, Nampally</div>
+                      <div className="text-[10px] font-medium text-slate-500">Musheerabad</div>
                     </div>
                   </button>
                 </div>
@@ -278,7 +278,7 @@ export const LabTestForm = ({ onClose, standalone = false }) => {
                   <input 
                     type="tel" 
                     required 
-                    placeholder="+91 99857 21155"
+                    placeholder="+91 98481 88898"
                     value={patientPhone}
                     onChange={(e) => setPatientPhone(e.target.value)}
                     className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs text-slate-800"
@@ -292,7 +292,7 @@ export const LabTestForm = ({ onClose, standalone = false }) => {
                   <input 
                     type="text" 
                     required
-                    placeholder="House No, Landmark, Aghapura / Nampally / Hyderabad"
+                    placeholder="House No, Landmark, Musheerabad / Hyderabad"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
                     className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs text-slate-800"

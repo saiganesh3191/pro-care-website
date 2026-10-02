@@ -8,13 +8,13 @@ const StatsCounter = () => {
       icon: Award,
       number: '16+',
       label: 'Years Leadership',
-      sublabel: 'Dr. Mohd. Vaseem (MD, FCCP USA)'
+      sublabel: ''
     },
     {
       icon: Users,
       number: '25,000+',
       label: 'Patients Treated',
-      sublabel: 'Across Aghapura & Nampally'
+      sublabel: 'Across Hyderabad & Telangana'
     },
     {
       icon: ShieldCheck,
@@ -25,8 +25,8 @@ const StatsCounter = () => {
     {
       icon: Clock,
       number: '7 Days',
-      label: 'Open Poly Clinic',
-      sublabel: 'Mon-Sat 9-9 | Sun 9-2'
+      label: 'Open Polyclinic',
+      sublabel: 'Mon–Sat 7 AM–9 PM | Sun 8 AM–2 PM'
     }
   ];
 

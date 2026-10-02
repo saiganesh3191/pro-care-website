@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { clinic } from '../data/clinic';
 import { motion } from 'framer-motion';
 import { 
   Award, 
@@ -14,12 +15,12 @@ const DoctorsDirectory = ({ onOpenAppointment }) => {
   const doctorsList = [
     {
       id: 'doc-1',
-      name: 'Dr. Mohd. Vaseem',
-      specialty: 'Pulmonologist, Chest Physician & Diabetologist',
-      qualification: 'MBBS, MD (Pulmonary Medicine), FCCP (USA)',
-      experience: '16+ Years Clinical Expertise',
-      affiliation: 'Consultant Pulmonologist - CARE Hospitals Nampally & Director PRO CARE',
-      timings: 'Mon - Sat: 10:00 AM - 2:00 PM & 6:00 PM - 9:00 PM',
+      name: clinic.doctorName,
+      specialty: 'Clinical & Interventional Pulmonologist, Chest Physician & Diabetologist',
+      qualification: clinic.doctorQualifications,
+      experience: '15+ Years Clinical Experience',
+      affiliation: 'Critical Care & Sleep Specialist · General Physician & Diabetologist · Infectious Disease Specialist',
+      timings: clinic.doctorTimings,
       rating: '5.0',
       image: '/images/dr.vassem.png',
       badge: 'Medical Director & Lead Physician',
@@ -27,59 +28,20 @@ const DoctorsDirectory = ({ onOpenAppointment }) => {
     },
     {
       id: 'doc-[#gayatri]',
-      name: 'Dr. Gayatri',
+      name: 'Dr. Gayathri',
       specialty: 'Dentistry (Endodontics & Prosthodontics)',
       qualification: 'BDS, Fellowship in Rotary Endodontics & Fixed Prosthodontics',
       experience: 'Masters in Bioclear Concept',
       affiliation: 'Dental Care Specialist & Consultant Surgeon',
-      timings: 'Mon - Sat: 10:00 AM - 2:00 PM & 5:00 PM - 8:30 PM',
+      timings: 'Contact reception to confirm consultation availability',
       rating: '4.9',
       image: '/images/dr-gayatri.jpeg',
       badge: 'Dental Care Specialist',
       isLead: false
     },
-    {
-      id: 'doc-2',
-      name: 'Dr. Fatima Begum',
-      specialty: 'Gynecologist & Obstetrician',
-      qualification: 'MBBS, DGO, DNB',
-      experience: '14+ Years Experience',
-      affiliation: 'Senior Consultant Women Care Specialist',
-      timings: 'Mon - Sat: 11:00 AM - 3:00 PM',
-      rating: '4.9',
-      image: '/images/preventive.png',
-      badge: 'Women Health Specialist',
-      isLead: false
-    },
-    {
-      id: 'doc-3',
-      name: 'Dr. Syed Ahmed Farooqui',
-      specialty: 'Pediatrician & Child Care Specialist',
-      qualification: 'MBBS, MD (Pediatrics)',
-      experience: '12+ Years Experience',
-      affiliation: 'Consultant Pediatrician',
-      timings: 'Mon - Sat: 5:00 PM - 9:00 PM',
-      rating: '4.8',
-      image: '/images/hero.png',
-      badge: 'Child Care Expert',
-      isLead: false
-    },
-    {
-      id: 'doc-4',
-      name: 'Dr. S. K. Sharma',
-      specialty: 'Consultant Cardiologist',
-      qualification: 'MBBS, MD, DM (Cardiology)',
-      experience: '20+ Years Experience',
-      affiliation: 'Senior Heart Care Specialist',
-      timings: 'Tue, Thu, Sat: 4:00 PM - 7:00 PM',
-      rating: '5.0',
-      image: '/images/lab_test.png',
-      badge: 'Cardiac Care Specialist',
-      isLead: false
-    }
   ];
 
-  const specialties = ['All', 'Pulmonology & Chest', 'Dental Care', 'Diabetology', 'Gynecologist', 'Pediatrician', 'Cardiologist'];
+  const specialties = ['All', 'Pulmonology & Chest', 'Dental Care', 'Diabetology'];
 
   const filteredDoctors = selectedSpecialty === 'All' 
     ? doctorsList 
@@ -109,7 +71,7 @@ const DoctorsDirectory = ({ onOpenAppointment }) => {
             Consult Our Doctors
           </h2>
           <p className="text-slate-600 text-sm sm:text-base md:text-lg font-medium">
-            Led by <strong>Dr. Mohd. Vaseem</strong> (MD Pulmonary Medicine, FCCP USA • Consultant CARE Hospitals Nampally) & Specialist Consultants across Pulmonology, Dentistry, Gynecologist, and Pediatrics.
+            Led by <strong>{clinic.doctorName}</strong> ({clinic.doctorQualifications}), with Dr. Gayathri for dental care.
           </p>
         </motion.div>
 
@@ -132,7 +94,7 @@ const DoctorsDirectory = ({ onOpenAppointment }) => {
         </div>
 
         {/* Doctors Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {filteredDoctors.map((doc, idx) => (
             <motion.div 
               key={doc.id}

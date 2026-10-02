@@ -12,7 +12,7 @@ const WhyChooseUs = () => {
   const reasons = [
     {
       title: 'Qualified & Experienced Doctors',
-      description: 'Senior specialists led by Dr. Mohd. Vaseem (MD Pulmonary Medicine, FCCP USA) with decades of clinical expertise.',
+      description: 'Senior specialists led by Dr. Mohd Vaseem (MBBS, MD, FCCP (USA), CCEBDM, FCD) with decades of clinical expertise.',
       icon: Award,
       bgColor: 'bg-rose-50/90 border-rose-200/80 text-rose-700',
       iconBg: 'bg-rose-100 text-rose-700'
@@ -55,10 +55,10 @@ const WhyChooseUs = () => {
             Trusted Healthcare Standard
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-            Why Choose PRO CARE?
+            Why Choose PROCARE?
           </h2>
           <p className="text-slate-600 text-base md:text-lg font-medium">
-            We blend modern medical diagnostics with compassionate human touch to deliver outstanding healthcare in Aghapura & Nampally.
+            We blend modern medical diagnostics with compassionate human touch to deliver outstanding healthcare in Musheerabad.
           </p>
         </motion.div>
 
@@ -93,7 +93,7 @@ const WhyChooseUs = () => {
 
                 <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center gap-2 text-slate-600 text-xs font-bold">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>PRO CARE Verified Standard</span>
+                  <span>PROCARE Verified Standard</span>
                 </div>
               </motion.div>
             );

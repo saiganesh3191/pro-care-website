@@ -11,9 +11,10 @@ import {
   Building2
 } from 'lucide-react';
 import Logo from './Logo';
+import { clinic } from '../data/clinic';
 
 const Footer = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpenReportModal }) => {
-  const googleMapLocationUrl = 'https://share.google/WKmAWQznFnKMKmpa4';
+  const googleMapLocationUrl = clinic.maps;
 
   return (
     <footer id="contact" className="bg-slate-900 text-white pt-16 pb-8 relative overflow-hidden">
@@ -30,8 +31,8 @@ const Footer = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
             <div>
               <h4 className="font-extrabold text-slate-900 text-sm">Clinic Timings</h4>
               <p className="text-xs text-slate-600 mt-1">
-                <strong>Mon - Sat:</strong> 9:00 AM - 9:00 PM<br />
-                <strong>Sunday:</strong> 9:00 AM - 2:00 PM
+                <strong>Mon - Sat:</strong> 7:00 AM - 9:00 PM<br />
+                <strong>Sunday:</strong> 8:00 AM - 2:00 PM
               </p>
               <span className="inline-block mt-1 text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-md">
                 Open All 7 Days
@@ -47,16 +48,16 @@ const Footer = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
             <div>
               <h4 className="font-extrabold text-slate-900 text-sm">Call Clinic Direct</h4>
               <a 
-                href="tel:+919985721155" 
+                href="tel:+919848188898"
                 className="text-base sm:text-lg font-black text-[#0F4C81] hover:text-sky-700 transition block mt-0.5"
               >
-                +91 99857 21155
+                +91 98481 88898
               </a>
               <a 
-                href="tel:+919177901230" 
+                href="tel:+919848188848"
                 className="text-xs font-extrabold text-slate-600 hover:text-[#0F4C81] transition block mt-0.5"
               >
-                Alt: +91 91779 01230
+                Alt: +91 98481 88848
               </a>
             </div>
           </div>
@@ -69,7 +70,7 @@ const Footer = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
             <div className="flex-1">
               <h4 className="font-extrabold text-slate-900 text-sm">Exact Location</h4>
               <p className="text-xs text-slate-600 mt-1 leading-snug">
-                D.No. 11-2-553, Opp. Masjid Nawaz Jung, Near Alhamdullilah Hotel, Behind Habeeb Nagar PS, Aghapura, Nampally, Hyderabad 500001
+                Beside Marjan Hotel, Diara Market, Mushirabad, Hyderabad
               </p>
               <a 
                 href={googleMapLocationUrl} 
@@ -96,7 +97,7 @@ const Footer = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
           </div>
           
           <p className="text-xs text-slate-400 leading-relaxed">
-            "We Treat, He Cures" — <strong>PRO CARE Poly Clinic</strong> is led by <strong>Dr. Mohd. Vaseem</strong> (MD Pulmonary Medicine, FCCP USA, Consultant CARE Hospitals Nampally), delivering chest care, pulmonology, diabetology, diagnostic lab tests, day care, and pharmacy.
+            "We Treat, He Cures" — <strong>PROCARE Polyclinic</strong> is led by <strong>Dr. Mohd Vaseem</strong> (MBBS, MD, FCCP (USA), CCEBDM, FCD), delivering chest care, pulmonology, diabetology, diagnostic lab tests, day care, and pharmacy.
           </p>
 
           <div className="space-y-1.5 text-xs text-slate-300">
@@ -106,7 +107,7 @@ const Footer = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
             </div>
             <div className="flex items-center gap-2">
               <Building2 className="w-4 h-4 text-sky-400 shrink-0" />
-              <span>Affiliated with CARE Hospitals Nampally</span>
+              <span>Clinical & Interventional Pulmonology</span>
             </div>
           </div>
 
@@ -117,13 +118,15 @@ const Footer = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
             >
               Book Consult
             </button>
-            <button 
-              onClick={onOpenReportModal}
+            <a
+              href={`https://wa.me/${clinic.phone.replace(/\D/g, '')}?text=${encodeURIComponent('Hello PROCARE Polyclinic, I would like to enquire about your services.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-emerald-600/30 hover:bg-emerald-600/50 text-emerald-300 border border-emerald-500/40 text-xs font-bold px-3.5 py-2 rounded-lg transition flex items-center gap-1"
             >
               <MessageSquare className="w-3.5 h-3.5" />
               <span>WhatsApp</span>
-            </button>
+            </a>
           </div>
         </div>
 
@@ -157,6 +160,7 @@ const Footer = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
               </button>
             </li>
           </ul>
+          <a href="/gallery" className="inline-block text-sky-200 hover:text-white text-sm font-bold">View Gallery</a>
         </div>
 
         {/* Col 3: Map Preview Card */}
@@ -165,8 +169,8 @@ const Footer = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
           
           <div className="relative rounded-2xl overflow-hidden border border-slate-700 h-48 shadow-lg group">
             <iframe 
-              title="PRO CARE Location Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.412497676742!2d78.4605!3d17.3912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDIzJzI4LjMiTiA3OMKwMjcnMzcuOCJF!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" 
+              title="PROCARE Location Map"
+              src={`https://www.google.com/maps?q=${encodeURIComponent("PROCARE Polyclinic, Diara Market, Musheerabad, Hyderabad")}&output=embed`}
               className="w-full h-full border-0 filter brightness-90 contrast-125" 
               allowFullScreen="" 
               loading="lazy" 
@@ -174,7 +178,7 @@ const Footer = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
             ></iframe>
 
             <div className="absolute bottom-3 left-3 right-3 bg-slate-900/90 backdrop-blur-md p-2.5 rounded-xl flex items-center justify-between border border-slate-700">
-              <span className="text-[11px] font-bold text-slate-200 truncate pr-2">Aghapura, Nampally, Hyderabad</span>
+              <span className="text-[11px] font-bold text-slate-200 truncate pr-2">Musheerabad, Hyderabad</span>
               <a 
                 href={googleMapLocationUrl}
                 target="_blank"
@@ -193,7 +197,7 @@ const Footer = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
       {/* Bottom Credits Bar */}
       <div className="max-w-7xl mx-auto px-4 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
         <div>
-          © {new Date().getFullYear()} <strong>PRO CARE Poly Clinic</strong>. All rights reserved.
+          © {new Date().getFullYear()} <strong>PROCARE Polyclinic</strong>. All rights reserved.
         </div>
         <div className="flex items-center gap-1">
           <span>Designed with</span>

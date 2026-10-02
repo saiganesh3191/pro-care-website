@@ -7,6 +7,7 @@ import WhyChooseUs from './components/WhyChooseUs';
 import HowItWorks from './components/HowItWorks';
 import PromoSection from './components/PromoSection';
 import LabTestsPage from './components/LabTestsPage';
+import GalleryPage from './components/GalleryPage';
 import DoctorsDirectory from './components/DoctorsDirectory';
 import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
@@ -34,6 +35,8 @@ function App() {
   const handleSelectPackage = (pkgTitle) => {
     handleOpenDoctorConsult(`Preventive Package: ${pkgTitle}`);
   };
+
+  if (window.location.pathname.replace(/\/$/, '') === '/gallery') return <GalleryPage />;
 
   if (window.location.pathname.replace(/\/$/, '') === '/lab-tests') {
     return <LabTestsPage />;
@@ -71,7 +74,7 @@ function App() {
           onOpenDaycareModal={() => setIsDaycareModalOpen(true)}
         />
 
-        {/* Why Choose PRO CARE? */}
+        {/* Why Choose PROCARE? */}
         <WhyChooseUs />
 
         {/* How It Works Flowchart */}

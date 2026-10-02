@@ -1,6 +1,6 @@
+import { clinic } from '../data/clinic';
 import React from 'react';
 import { 
-  CheckCircle2, 
   Calendar, 
   FileCheck, 
   HeartHandshake, 
@@ -8,7 +8,7 @@ import {
   Sparkles
 } from 'lucide-react';
 
-const HowItWorks = ({ onOpenAppointment }) => {
+const HowItWorks = () => {
   const steps = [
     {
       number: '1',
@@ -26,8 +26,8 @@ const HowItWorks = ({ onOpenAppointment }) => {
     },
     {
       number: '3',
-      title: 'Confirm Booking',
-      desc: 'Receive instant confirmation',
+      title: 'Send Your Request',
+      desc: 'Reception confirms availability on WhatsApp',
       icon: FileCheck,
       badge: 'Step 3'
     },
@@ -109,16 +109,18 @@ const HowItWorks = ({ onOpenAppointment }) => {
             </div>
             <div>
               <h4 className="font-extrabold text-lg">Need Assistance with Booking?</h4>
-              <p className="text-xs text-sky-100">Our customer support team is available on WhatsApp and Phone 9:00 AM to 9:00 PM.</p>
+              <p className="text-xs text-sky-100">Our customer support team is available on WhatsApp and phone: Mon–Sat 7 AM–9 PM; Sun 8 AM–2 PM.</p>
             </div>
           </div>
 
-          <button 
-            onClick={onOpenAppointment}
+          <a
+            href={`https://wa.me/${clinic.phone.replace(/\D/g, '')}?text=${encodeURIComponent('Hello PROCARE Polyclinic, I would like assistance booking an appointment.')}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="whitespace-nowrap bg-white hover:bg-sky-50 text-[#0F4C81] font-extrabold text-sm px-6 py-3 rounded-xl shadow-md transition"
           >
-            Start Booking Now
-          </button>
+            Start Booking on WhatsApp
+          </a>
         </div>
 
       </div>

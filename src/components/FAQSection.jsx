@@ -9,13 +9,13 @@ const FAQSection = () => {
   const faqs = [
     {
       category: 'Appointments',
-      question: 'How do I book an appointment with a doctor at PRO CARE?',
-      answer: 'You can book an appointment online by clicking the "Book Appointment" button on our website, selecting your doctor, preferred date & time slot. Alternatively, you can call us at +91 99857 21155 or walk into our clinic in Aghapura, Nampally.'
+      question: 'How do I book an appointment with a doctor at PROCARE?',
+      answer: 'Click "Book Appointment", choose your doctor and preferred date and time, then send your request to our front office on WhatsApp. Reception will confirm availability. You can also call +91 98481 88898 or visit our clinic in Musheerabad.'
     },
     {
       category: 'Lab Tests',
       question: 'Is home sample collection available for diagnostic lab tests?',
-      answer: 'Yes! PRO CARE offers home sample collection for blood tests, diabetes profiles, lipid profiles, and thyroid packages across Aghapura, Nampally, and surrounding areas in Hyderabad. You can select "Home Collection" when booking online.'
+      answer: 'Yes! PROCARE offers home sample collection for blood tests, diabetes profiles, lipid profiles, and thyroid packages across Musheerabad, and surrounding areas in Hyderabad. You can select "Home Collection" when booking online.'
     },
     {
       category: 'Lab Tests',
@@ -29,13 +29,13 @@ const FAQSection = () => {
     },
     {
       category: 'Timings',
-      question: 'What are the operating clinic timings for PRO CARE Poly Clinic?',
-      answer: 'Our poly clinic is open Monday to Saturday from 9:00 AM to 9:00 PM, and on Sundays from 9:00 AM to 2:00 PM. Pharmacy and sample collection operate during all clinic hours.'
+      question: 'What are the operating clinic timings for PROCARE Polyclinic?',
+      answer: 'Our poly clinic is open Monday to Saturday from 7:00 AM to 9:00 PM, and on Sundays from 8:00 AM to 2:00 PM. Pharmacy and sample collection operate during all clinic hours.'
     },
     {
       category: 'General',
-      question: 'Where is PRO CARE Poly Clinic located in Hyderabad?',
-      answer: 'We are located at V Care Clinic, Behind Habeeb Nagar PS, Near Alhamdulillah Hotel Rd, Aghapura, Nampally, Hyderabad, Telangana 500001.'
+      question: 'Where is PROCARE Polyclinic located in Hyderabad?',
+      answer: 'We are beside Marjan Hotel, Diara Market, Mushirabad, Hyderabad.'
     }
   ];
 
@@ -126,7 +126,7 @@ const FAQSection = () => {
             })
           ) : (
             <div className="p-8 bg-white rounded-2xl text-center text-slate-500 text-xs">
-              No matching questions found. Call us at <strong>+91 99857 21155</strong> for instant help!
+              No matching questions found. Call us at <strong>+91 98481 88898</strong> for instant help!
             </div>
           )}
         </div>

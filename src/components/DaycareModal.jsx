@@ -51,7 +51,7 @@ const DaycareModal = ({ isOpen, onClose, onBookAppointment }) => {
           </div>
 
           <p className="text-xs text-slate-600 leading-relaxed">
-            PRO CARE Poly Clinic offers dedicated day care beds equipped with patient monitoring equipment for medical treatments that do not require overnight hospitalization.
+            PROCARE Polyclinic offers dedicated day care beds equipped with patient monitoring equipment for medical treatments that do not require overnight hospitalization.
           </p>
 
           <div className="space-y-2">

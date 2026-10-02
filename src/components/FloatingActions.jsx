@@ -2,7 +2,7 @@ import React from 'react';
 import { Phone, MessageSquare, Calendar } from 'lucide-react';
 
 const FloatingActions = ({ onOpenAppointment, onOpenReportModal }) => {
-  const whatsappUrl = 'https://wa.me/919985721155?text=' + encodeURIComponent('Hello PRO CARE Poly Clinic, I need information about appointments / lab tests.');
+  const whatsappUrl = 'https://wa.me/919848188898?text=' + encodeURIComponent('Hello PROCARE Polyclinic, I need information about appointments / lab tests.');
 
   return (
     <div className="fixed bottom-5 right-5 z-40 flex flex-col gap-3 items-end pointer-events-none">
@@ -23,13 +23,13 @@ const FloatingActions = ({ onOpenAppointment, onOpenReportModal }) => {
 
       {/* Floating Phone Call Button */}
       <a 
-        href="tel:+919985721155"
+        href="tel:+919848188898"
         className="pointer-events-auto bg-[#0F4C81] hover:bg-[#0A365C] text-white w-13 h-13 rounded-full flex items-center justify-center shadow-2xl transition hover:scale-110 group relative"
         aria-label="Call Clinic"
       >
         <Phone className="w-6 h-6 animate-pulse" />
         <span className="absolute right-14 bg-slate-900 text-white text-[11px] font-bold px-2.5 py-1 rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition shadow-md">
-          Call +91 99857 21155
+          Call +91 98481 88898
         </span>
       </a>
 

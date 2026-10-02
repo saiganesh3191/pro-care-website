@@ -9,7 +9,7 @@ const Logo = ({ className = '', showSubtext = true }) => {
         /* High-Definition 3x Cleaned Client Logo */
         <img 
           src="/images/logo.png" 
-          alt="PRO CARE Poly Clinic Logo" 
+          alt="PROCARE Polyclinic Logo"
           onError={() => setImgError(true)}
           className="h-14 sm:h-16 md:h-20 lg:h-22 w-auto object-contain max-w-full transition-all duration-200"
         />
@@ -72,7 +72,7 @@ const Logo = ({ className = '', showSubtext = true }) => {
             </div>
             <div className="flex items-baseline gap-1.5 leading-none my-0.5">
               <span className="text-xl sm:text-2xl md:text-3xl font-black text-[#0B428C] font-serif uppercase tracking-tight">
-                PRO CARE
+                PROCARE
               </span>
               <span className="text-xs sm:text-sm font-bold text-[#DC2626] italic font-serif tracking-tight">
                 Progressively Healthy

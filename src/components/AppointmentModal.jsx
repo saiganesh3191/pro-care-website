@@ -13,7 +13,7 @@ import confetti from 'canvas-confetti';
 
 const AppointmentForm = ({ onClose, preselectedDoctor = '' }) => {
 
-  const [doctor, setDoctor] = useState(preselectedDoctor === 'Dr. Gayatri' ? 'Dr. Gayatri (Dentist)' : preselectedDoctor || 'Dr. Mohd. Vaseem (Pulmonologist, Chest & Diabetologist)');
+  const [doctor, setDoctor] = useState(preselectedDoctor.startsWith('Dr. Gayathri') ? 'Dr. Gayathri (Dentist)' : 'Dr. Mohd Vaseem (Pulmonologist, Chest & Diabetologist)');
   const [patientName, setPatientName] = useState('');
   const [patientPhone, setPatientPhone] = useState('');
   const [appointmentDate, setAppointmentDate] = useState('');
@@ -24,11 +24,8 @@ const AppointmentForm = ({ onClose, preselectedDoctor = '' }) => {
   const [bookingId, setBookingId] = useState('');
 
   const availableDoctors = [
-    'Dr. Mohd. Vaseem (Pulmonologist, Chest & Diabetologist)',
-    'Dr. Fatima Begum (Gynecologist & Obstetrician)',
-    'Dr. Syed Ahmed Farooqui (Pediatrician)',
-    'Dr. S. K. Sharma (Cardiologist)',
-    'Dr. Gayatri (Dentist)'
+    'Dr. Mohd Vaseem (Pulmonologist, Chest & Diabetologist)',
+    'Dr. Gayathri (Dentist)'
   ];
 
   const timeSlots = ['10:00 AM', '10:30 AM', '11:30 AM', '04:30 PM', '06:00 PM', '07:30 PM'];
@@ -51,8 +48,8 @@ const AppointmentForm = ({ onClose, preselectedDoctor = '' }) => {
   };
 
   const handleWhatsAppSend = () => {
-    const text = `Hello PRO CARE Poly Clinic,\nI have booked an appointment online!\n\n📌 *Booking Ref:* ${bookingId}\n👤 *Patient Name:* ${patientName}\n📱 *Phone:* ${patientPhone}\n👨‍⚕️ *Doctor:* ${doctor}\n📅 *Date:* ${appointmentDate}\n⏰ *Time:* ${timeSlot}\n📍 *Mode:* ${consultType}\n🏥 *Clinic Address:* D.No. 11-2-553, Opp. Masjid Nawaz Jung, Aghapura, Nampally, Hyderabad`;
-    const whatsappUrl = `https://wa.me/919985721155?text=${encodeURIComponent(text)}`;
+    const text = `Hello PROCARE Polyclinic,\nI would like to request an appointment. Please confirm availability.\n\n📌 *Booking Ref:* ${bookingId}\n👤 *Patient Name:* ${patientName}\n📱 *Phone:* ${patientPhone}\n👨‍⚕️ *Doctor:* ${doctor}\n📅 *Date:* ${appointmentDate}\n⏰ *Time:* ${timeSlot}\n📍 *Mode:* ${consultType}\n🏥 *Clinic Address:* Beside Marjan Hotel, Diara Market, Mushirabad, Hyderabad`;
+    const whatsappUrl = `https://wa.me/919848188898?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -75,7 +72,7 @@ const AppointmentForm = ({ onClose, preselectedDoctor = '' }) => {
             </div>
             <div>
               <h3 className="font-extrabold text-lg leading-tight">Book Doctor Appointment</h3>
-              <p className="text-xs text-sky-100">PRO CARE Poly Clinic • Fast & Easy</p>
+              <p className="text-xs text-sky-100">PROCARE Polyclinic • Fast & Easy</p>
             </div>
           </div>
           <button 
@@ -163,7 +160,7 @@ const AppointmentForm = ({ onClose, preselectedDoctor = '' }) => {
                     <input 
                       type="tel" 
                       required
-                      placeholder="+91 99857 21155"
+                      placeholder="+91 98481 88898"
                       value={patientPhone}
                       onChange={(e) => setPatientPhone(e.target.value)}
                       className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-slate-300 focus:border-[#0F4C81] text-xs text-slate-800"
@@ -219,7 +216,7 @@ const AppointmentForm = ({ onClose, preselectedDoctor = '' }) => {
                   className="btn-glow w-full bg-[#0F4C81] hover:bg-[#0A365C] text-white py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition"
                 >
                   <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span>Confirm Appointment Booking</span>
+                  <span>Prepare Appointment Request</span>
                 </button>
               </div>
 
@@ -233,9 +230,9 @@ const AppointmentForm = ({ onClose, preselectedDoctor = '' }) => {
 
               <div>
                 <span className="text-[11px] font-extrabold uppercase bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full border border-emerald-200">
-                  Appointment Confirmed!
+                  Appointment Request Ready
                 </span>
-                <h4 className="text-2xl font-black text-slate-900 mt-2">Booking Receipt</h4>
+                <h4 className="text-2xl font-black text-slate-900 mt-2">Request Details</h4>
                 <p className="text-xs text-slate-500">Ref No: <strong className="text-slate-900 font-mono">{bookingId}</strong></p>
               </div>
 
@@ -255,7 +252,7 @@ const AppointmentForm = ({ onClose, preselectedDoctor = '' }) => {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-500">Location:</span>
-                  <span className="font-bold text-slate-800">11-2-553, Opp. Masjid Nawaz Jung, Aghapura, Nampally</span>
+                  <span className="font-bold text-slate-800">Beside Marjan Hotel, Diara Market, Mushirabad</span>
                 </div>
               </div>
 
@@ -265,7 +262,7 @@ const AppointmentForm = ({ onClose, preselectedDoctor = '' }) => {
                   className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition"
                 >
                   <Share2 className="w-4 h-4" />
-                  <span>Send Confirmation via WhatsApp</span>
+                  <span>Send Request via WhatsApp</span>
                 </button>
                 
                 <button 

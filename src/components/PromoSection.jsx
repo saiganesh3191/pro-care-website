@@ -142,7 +142,7 @@ const PromoSection = ({ onOpenLabModal, onOpenPharmacyModal, onOpenReportModal }
                 <div className="relative rounded-2xl overflow-hidden shadow-lg border-2 border-white w-full h-48 bg-slate-100">
                   <img 
                     src="/images/pharmacy.png" 
-                    alt="Pro Care Pharmacy" 
+                    alt="PROCARE Pharmacy"
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent"></div>
@@ -184,7 +184,7 @@ const PromoSection = ({ onOpenLabModal, onOpenPharmacyModal, onOpenReportModal }
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-[#0F4C81] shrink-0" />
-                    <span>Home delivery available in Aghapura & Nampally</span>
+                    <span>Home delivery available in Musheerabad</span>
                   </li>
                 </ul>
 

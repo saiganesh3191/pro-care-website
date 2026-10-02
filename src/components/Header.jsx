@@ -33,11 +33,11 @@ const Header = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
           <div className="flex items-center gap-4 flex-wrap">
             <div className="flex items-center gap-1.5 hover:text-sky-200 transition">
               <Clock className="w-4 h-4 text-sky-300" />
-              <span>Mon - Sat: <strong>9:00 AM - 9:00 PM</strong> | Sun: <strong>9:00 AM - 2:00 PM</strong></span>
+              <span>Mon - Sat: <strong>7:00 AM - 9:00 PM</strong> | Sun: <strong>8:00 AM - 2:00 PM</strong></span>
             </div>
             <div className="hidden lg:flex items-center gap-1.5 hover:text-sky-200 transition">
               <MapPin className="w-4 h-4 text-sky-300" />
-              <span>Aghapura, Nampally, Hyderabad</span>
+              <span>Musheerabad, Hyderabad</span>
             </div>
           </div>
 
@@ -50,11 +50,11 @@ const Header = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
               <span>Request Lab Reports</span>
             </button>
             <a 
-              href="tel:+919985721155" 
+              href="tel:+919848188898"
               className="flex items-center gap-1.5 font-extrabold hover:text-emerald-300 transition bg-emerald-600/30 px-3.5 py-1 rounded-full border border-emerald-400/40 text-xs md:text-sm"
             >
               <Phone className="w-4 h-4 text-emerald-300 animate-pulse" />
-              <span>+91 99857 21155</span>
+              <span>+91 98481 88898</span>
             </a>
           </div>
         </div>
@@ -72,7 +72,7 @@ const Header = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
         </div>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-7 font-bold text-slate-700 text-sm md:text-base">
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-6 font-bold text-slate-700 text-sm md:text-base">
           <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-[#0F4C81] font-extrabold transition">
             Home
           </button>
@@ -91,6 +91,7 @@ const Header = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
           <button onClick={() => handleNavClick('pharmacy')} className="hover:text-[#0F4C81] transition">
             Pharmacy
           </button>
+          <a href="/gallery" className="hover:text-[#0F4C81] transition">Gallery</a>
           <button onClick={() => handleNavClick('faq')} className="hover:text-[#0F4C81] transition">
             FAQ
           </button>
@@ -143,7 +144,8 @@ const Header = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal, onOpen
           </div>
 
           <div className="flex flex-col gap-2 pt-1 text-sm font-medium">
-            <button onClick={() => handleNavClick('about')} className="text-left py-2 px-2 text-slate-700 hover:text-sky-700">About PRO CARE</button>
+            <button onClick={() => handleNavClick('about')} className="text-left py-2 px-2 text-slate-700 hover:text-sky-700">About PROCARE</button>
+            <a href="/gallery" className="text-left py-2 px-2 text-slate-700 hover:text-sky-700">Gallery</a>
             <button onClick={() => handleNavClick('faq')} className="text-left py-2 px-2 text-slate-700 hover:text-sky-700">Frequently Asked Questions</button>
             <button onClick={() => handleNavClick('contact')} className="text-left py-2 px-2 text-slate-700 hover:text-sky-700">Contact & Directions</button>
             <button onClick={onOpenReportModal} className="text-left py-2 px-2 text-sky-700 font-bold flex items-center justify-between">

@@ -1,28 +1,27 @@
 // Keep factual content centralized. See CONTENT-SOURCES.md for provenance.
 export const clinic = {
-  name: 'PRO CARE',
+  name: 'PROCARE Polyclinic',
   tagline: 'Progressively Healthy',
   locality: 'Musheerabad, Hyderabad',
-  address: '17-481/1/A, Daira Market Area, Zamistanpur, Ram Nagar Road, Musheerabad, Hyderabad, Telangana 500020',
-  landmark: 'Beside Deepak Photo Shop',
+  address: 'Beside Marjan Hotel, Diara Market, Mushirabad, Hyderabad',
+  landmark: 'Beside Marjan Hotel',
   rating: '4.9',
   ratingCount: '118 ratings',
   established: 'September 2023',
   listingYears: '3 years in healthcare',
-  weekdayHours: 'Monday-Saturday: 7:00 AM-10:00 PM',
-  sundayHours: 'Sunday: 7:00 AM-1:00 PM',
+  weekdayHours: 'Monday-Saturday: 7:00 AM-9:00 PM',
+  sundayHours: 'Sunday: 8:00 AM-2:00 PM',
   phone: '+919848188898',
   phoneDisplay: '+91 98481 88898',
-  alternatePhone: '+919010107500',
-  alternatePhoneDisplay: '+91 90101 07500',
-  maps: 'https://share.google/WKmAWQznFnKMKmpa4',
-  doctorProfile: 'https://www.carehospitals.com/doctor/hyderabad/nampally/mohammed-vaseem-pulmonologist',
+  alternatePhone: '+919848188848',
+  alternatePhoneDisplay: '+91 98481 88848',
+  maps: 'https://share.google/FXTkohVp2q9q1X9kT',
+  doctorProfile: 'https://drmohdvaseem.com/',
   doctorTimings: 'Monday-Saturday: 4:30 PM-6:30 PM',
-  photoCount: '44 photos',
-  exteriorPhotos: '8 exterior photos',
-  interiorPhotos: '24 interior photos',
+  doctorName: 'Dr. Mohd Vaseem',
+  doctorQualifications: 'MBBS, MD, FCCP (USA), CCEBDM, FCD',
   doctorExperience: '15 years',
-  doctorSpecialty: 'Pulmonologist, critical care and sleep specialist',
+  doctorSpecialty: 'Sr Consultant Clinical & Interventional Pulmonologist (Chest Physician)',
   doctorLanguages: 'English, Hindi and Telugu',
 };
 
@@ -32,7 +31,7 @@ export function makeEnquiry({ name, phone, service, date, note }, selectedTests 
   const testBlock = selectedTests.length
     ? `\nSelected lab tests:\n${testLines.join('\n')}\nEstimated total: Rs. ${total.toLocaleString('en-IN')}`
     : '';
-  return `Hello PRO CARE, I would like to enquire about ${service}.\nName: ${name.trim()}\nPhone: ${phone.trim()}${date ? `\nPreferred date: ${date}` : ''}${testBlock}${note.trim() ? `\nMessage: ${note.trim()}` : ''}\nPlease confirm availability, preparation instructions, final price and timing.`;
+  return `Hello PROCARE, I would like to enquire about ${service}.\nName: ${name.trim()}\nPhone: ${phone.trim()}${date ? `\nPreferred date: ${date}` : ''}${testBlock}${note.trim() ? `\nMessage: ${note.trim()}` : ''}\nPlease confirm availability, preparation instructions, final price and timing.`;
 }
 
 export const labTests = [

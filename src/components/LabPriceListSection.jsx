@@ -77,7 +77,7 @@ const LabPriceListSection = ({ onOpenLabModal }) => {
             Lab Investigations & Pricing
           </h2>
           <p className="text-slate-600 text-base md:text-lg font-medium">
-            Transparent NABL accredited diagnostic test rates. Book online for quick doorstep home sample collection across Aghapura & Nampally.
+            Transparent NABL accredited diagnostic test rates. Book online for quick doorstep home sample collection across Musheerabad.
           </p>
         </motion.div>
 
@@ -162,7 +162,7 @@ const LabPriceListSection = ({ onOpenLabModal }) => {
               ))
             ) : (
               <div className="p-8 text-center text-slate-500 text-sm">
-                No matching investigation found for "{searchTerm}". Call <strong>+91 99857 21155</strong> for custom lab inquiries.
+                No matching investigation found for "{searchTerm}". Call <strong>+91 98481 88898</strong> for custom lab inquiries.
               </div>
             )}
           </div>

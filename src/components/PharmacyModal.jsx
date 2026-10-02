@@ -14,8 +14,6 @@ import {
 import confetti from 'canvas-confetti';
 
 const PharmacyModal = ({ isOpen, onClose }) => {
-  if (!isOpen) return null;
-
   const [medicineText, setMedicineText] = useState('');
   const [patientName, setPatientName] = useState('');
   const [patientPhone, setPatientPhone] = useState('');
@@ -23,6 +21,8 @@ const PharmacyModal = ({ isOpen, onClose }) => {
   const [prescriptionFile, setPrescriptionFile] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [orderId, setOrderId] = useState('');
+
+  if (!isOpen) return null;
 
   const handleFileChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -44,8 +44,8 @@ const PharmacyModal = ({ isOpen, onClose }) => {
   };
 
   const handleWhatsAppSend = () => {
-    const text = `Hello PRO CARE Pharmacy,\nI want to order medicines online!\n\n📌 *Order Ref:* ${orderId}\n👤 *Name:* ${patientName}\n📱 *Phone:* ${patientPhone}\n💊 *Medicine List:* ${medicineText || 'Prescription Attached'}\n📄 *Prescription File:* ${prescriptionFile || 'None'}\n📍 *Delivery Address:* ${deliveryAddress || 'Aghapura / Nampally'}`;
-    window.open(`https://wa.me/919985721155?text=${encodeURIComponent(text)}`, '_blank');
+    const text = `Hello PROCARE Pharmacy,\nI want to order medicines online!\n\n📌 *Order Ref:* ${orderId}\n👤 *Name:* ${patientName}\n📱 *Phone:* ${patientPhone}\n💊 *Medicine List:* ${medicineText || 'Prescription Attached'}\n📄 *Prescription File:* ${prescriptionFile || 'None'}\n📍 *Delivery Address:* ${deliveryAddress || 'Musheerabad'}`;
+    window.open(`https://wa.me/919848188898?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   return (
@@ -130,7 +130,7 @@ const PharmacyModal = ({ isOpen, onClose }) => {
                   <input 
                     type="tel" 
                     required 
-                    placeholder="+91 99857 21155"
+                    placeholder="+91 98481 88898"
                     value={patientPhone}
                     onChange={(e) => setPatientPhone(e.target.value)}
                     className="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800"
@@ -140,7 +140,7 @@ const PharmacyModal = ({ isOpen, onClose }) => {
 
               {/* Delivery Address */}
               <div>
-                <label className="block text-xs font-extrabold text-slate-700 mb-1">Delivery Address (Aghapura, Nampally & Nearby)</label>
+                <label className="block text-xs font-extrabold text-slate-700 mb-1">Delivery Address (Musheerabad & Nearby)</label>
                 <input 
                   type="text" 
                   placeholder="House No, Street, Landmark..."
@@ -186,7 +186,7 @@ const PharmacyModal = ({ isOpen, onClose }) => {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-500">Delivery Status:</span>
-                  <span className="font-bold text-emerald-700">Dispatching from PRO CARE Pharmacy</span>
+                  <span className="font-bold text-emerald-700">Dispatching from PROCARE Pharmacy</span>
                 </div>
               </div>
 

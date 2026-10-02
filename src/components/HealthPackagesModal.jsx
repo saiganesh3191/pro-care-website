@@ -23,7 +23,7 @@ const HealthPackagesModal = ({ isOpen, onClose, onSelectPackage }) => {
     },
     {
       id: 'p2',
-      title: 'PRO CARE Executive Health Package',
+      title: 'PROCARE Executive Health Package',
       price: '₹1,499',
       originalPrice: '₹3,200',
       discount: '53% OFF',

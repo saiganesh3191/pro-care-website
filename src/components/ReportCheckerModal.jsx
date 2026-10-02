@@ -12,8 +12,8 @@ const ReportRequestForm = ({ onClose }) => {
     setIsReviewing(true);
   };
 
-  const requestText = `Hello PRO CARE Diagnostics,\nI would like to enquire about my lab report.\nRegistered mobile number: ${patientPhone.trim()}${sampleId.trim() ? `\nSample ID / Bill number: ${sampleId.trim()}` : ''}\nPlease check the report status and let me know whether the PDF is available. Please confirm any verification needed before sharing it.`;
-  const whatsappUrl = `https://wa.me/919985721155?text=${encodeURIComponent(requestText)}`;
+  const requestText = `Hello PROCARE Diagnostics,\nI would like to enquire about my lab report.\nRegistered mobile number: ${patientPhone.trim()}${sampleId.trim() ? `\nSample ID / Bill number: ${sampleId.trim()}` : ''}\nPlease check the report status and let me know whether the PDF is available. Please confirm any verification needed before sharing it.`;
+  const whatsappUrl = `https://wa.me/919848188898?text=${encodeURIComponent(requestText)}`;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn" role="dialog" aria-modal="true" aria-labelledby="report-request-title">

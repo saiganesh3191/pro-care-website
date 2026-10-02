@@ -61,7 +61,7 @@ const Hero = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal }) => {
               <strong className="text-[#0F4C81]">Book Lab Tests</strong> &nbsp;|&nbsp; 
               <strong className="text-[#0F4C81]">Pharmacy</strong>
               <br />
-              <span className="text-slate-900 font-bold">All in One Place – PRO CARE Poly Clinic</span>
+              <span className="text-slate-900 font-bold">All in One Place – PROCARE Polyclinic</span>
             </p>
 
             {/* 4 Feature Badges */}
@@ -142,7 +142,7 @@ const Hero = ({ onOpenAppointment, onOpenLabModal, onOpenPharmacyModal }) => {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group">
               <img 
                 src="/images/hero.png" 
-                alt="Pro Care Doctor Consulting Indian Family" 
+                alt="PROCARE Doctor Consulting Indian Family"
                 className="w-full h-[400px] sm:h-[460px] object-cover object-top transform group-hover:scale-105 transition duration-700"
               />
               
